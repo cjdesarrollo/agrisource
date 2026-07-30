@@ -1,0 +1,45 @@
+2026-07-08T14:11:16.5557012Z State: Starting, Action: EstablishingSiteNetworks, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: , DetailsLevel: INFO
+2026-07-08T14:11:17.4017340Z State: Starting, Action: StartingSiteContainers, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: , DetailsLevel: INFO
+2026-07-08T14:11:17.4020468Z Container start method called.
+2026-07-08T14:11:17.4021220Z State: Starting, Action: PullingImage, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Pulling image 10.1.0.4:13209/appsvc/dotnetcore:8.0_20260504.4.tuxprod for agrisource-api-benno., DetailsLevel: INFO
+2026-07-08T14:11:17.4022566Z Establishing network.
+2026-07-08T14:11:17.4023969Z Pulling image: appsvc/dotnetcore:8.0_20260504.4.tuxprod.
+2026-07-08T14:11:17.5076373Z Container is starting.
+2026-07-08T14:11:17.5077082Z State: Starting, Action: MountingVolumes, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Mounting volumes for agrisource-api-benno., DetailsLevel: INFO
+2026-07-08T14:11:17.5077889Z Establishing user namespace if not established already.
+2026-07-08T14:11:17.5078663Z Establishing network if not established already.
+2026-07-08T14:11:17.5079468Z Mounting volumes.
+2026-07-08T14:11:17.5099863Z Nested mountpoint 
+2026-07-08T14:11:17.5119070Z Nested mountpoint volatile/logs
+2026-07-08T14:11:17.5440266Z Nested mountpoint 
+2026-07-08T14:11:17.5450593Z Nested mountpoint 
+2026-07-08T14:11:17.5481356Z Nested mountpoint 
+2026-07-08T14:11:17.5529261Z Nested mountpoint 
+2026-07-08T14:11:17.6425890Z State: Starting, Action: CreatingContainer, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Finished pulling container image and mounting volumes for agrisource-api-benno. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-07-08T14:11:17.6427347Z Creating container.
+2026-07-08T14:11:17.6428572Z Creating pipes for streaming container io.
+2026-07-08T14:11:17.6429712Z Creating stdout named pipe at /podr/container/pipe/6a660f86ec5b_agrisource-api-benno/stdout_1ca934f10bc64ea78ecf16de45ef001d.
+2026-07-08T14:11:17.6438169Z Successfully created stdout named pipe at: /podr/container/pipe/6a660f86ec5b_agrisource-api-benno/stdout_1ca934f10bc64ea78ecf16de45ef001d.
+2026-07-08T14:11:17.6439391Z Opening named pipe /podr/container/pipe/6a660f86ec5b_agrisource-api-benno/stdout_1ca934f10bc64ea78ecf16de45ef001d for reading in non-blocking mode.
+2026-07-08T14:11:17.6440814Z Successfully opened named pipe: /podr/container/pipe/6a660f86ec5b_agrisource-api-benno/stdout_1ca934f10bc64ea78ecf16de45ef001d.
+2026-07-08T14:11:17.6442022Z Successfully removed non-blocking flag from /podr/container/pipe/6a660f86ec5b_agrisource-api-benno/stdout_1ca934f10bc64ea78ecf16de45ef001d.
+2026-07-08T14:11:17.6443627Z Creating stderr named pipe at /podr/container/pipe/6a660f86ec5b_agrisource-api-benno/stderr_ed0fcf78d70341d887812c5d30d37c7b.
+2026-07-08T14:11:17.6445246Z Successfully created stderr named pipe at: /podr/container/pipe/6a660f86ec5b_agrisource-api-benno/stderr_ed0fcf78d70341d887812c5d30d37c7b.
+2026-07-08T14:11:17.6446393Z Opening named pipe /podr/container/pipe/6a660f86ec5b_agrisource-api-benno/stderr_ed0fcf78d70341d887812c5d30d37c7b for reading in non-blocking mode.
+2026-07-08T14:11:17.6484931Z Successfully opened named pipe: /podr/container/pipe/6a660f86ec5b_agrisource-api-benno/stderr_ed0fcf78d70341d887812c5d30d37c7b.
+2026-07-08T14:11:17.6486824Z Successfully removed non-blocking flag from /podr/container/pipe/6a660f86ec5b_agrisource-api-benno/stderr_ed0fcf78d70341d887812c5d30d37c7b.
+2026-07-08T14:11:17.6491521Z Creating container with image: appsvc/dotnetcore:8.0_20260504.4.tuxprod from registry: 10.1.0.4:13209 and fully qualified image name: 10.1.0.4:13209/appsvc/dotnetcore:8.0_20260504.4.tuxprod
+2026-07-08T14:11:17.9881863Z Starting container: 6a660f86ec5b_agrisource-api-benno.
+2026-07-08T14:11:18.0046470Z Starting watchers and probes.
+2026-07-08T14:11:18.0050609Z Starting metrics collection.
+2026-07-08T14:11:18.0052659Z Container is running.
+2026-07-08T14:11:18.0053652Z State: Starting, Action: CreatingContainer, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Container agrisource-api-benno successfully created and is running., DetailsLevel: INFO
+2026-07-08T14:11:18.0286114Z Container start method finished after 626 ms.
+2026-07-08T14:11:18.0295377Z State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Container agrisource-api-benno successfully created and is running., DetailsLevel: INFO
+2026-07-08T14:11:18.0297443Z State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-07-08T14:11:34.2285130Z Site startup probe succeeded after 16.1958673 seconds.
+2026-07-08T14:11:34.2997434Z State: Starting, Action: WarmUpProbeSucceeded, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Site startup probe succeeded after 16.1958673 seconds., DetailsLevel: INFO
+2026-07-08T14:11:34.6813284Z Site is running with deployment version: 20b03810-92b1-4cd1-82d0-3112c2b3256c
+2026-07-08T14:11:34.6816015Z Site started.
+2026-07-08T14:11:34.6816914Z State: Started, Action: None, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Site started at 07/08/2026 14:11:34 (UTC), DetailsLevel: INFO
+2026-07-08T14:11:34.6876448Z Site is running with patch version DOTNETCORE-8.0.26

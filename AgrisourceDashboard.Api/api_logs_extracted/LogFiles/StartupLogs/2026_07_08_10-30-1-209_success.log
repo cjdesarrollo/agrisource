@@ -1,0 +1,93 @@
+2026-07-08T15:25:14.6613786+00:00 ContainerStatus: State: Starting, Action: EstablishingSiteNetworks, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: , DetailsLevel: INFO
+2026-07-08T15:25:17.1896964+00:00 ContainerStatus: State: Starting, Action: StartingSiteContainers, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: , DetailsLevel: INFO
+2026-07-08T15:25:17.1921943+00:00 ContainerStatus: Container start method called.
+2026-07-08T15:25:17.1972770+00:00 ContainerStatus: State: Starting, Action: PullingImage, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Pulling image 10.1.0.4:13209/appsvc/dotnetcore:8.0_20260504.4.tuxprod for agrisource-api-benno., DetailsLevel: INFO
+2026-07-08T15:25:17.1979691+00:00 ContainerStatus: Establishing network.
+2026-07-08T15:25:17.1986051+00:00 ContainerStatus: Pulling image: appsvc/dotnetcore:8.0_20260504.4.tuxprod.
+2026-07-08T15:25:17.3083856+00:00 ContainerStatus: Image appsvc/dotnetcore:8.0_20260504.4.tuxprod is pulled from registry 10.1.0.4:13209
+2026-07-08T15:25:17.3148825+00:00 ContainerStatus: Container is starting.
+2026-07-08T15:25:17.3150178+00:00 ContainerStatus: State: Starting, Action: MountingVolumes, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Mounting volumes for agrisource-api-benno., DetailsLevel: INFO
+2026-07-08T15:25:17.3150982+00:00 ContainerStatus: Establishing user namespace if not established already.
+2026-07-08T15:25:17.3151929+00:00 ContainerStatus: Establishing network if not established already.
+2026-07-08T15:25:17.3158705+00:00 ContainerStatus: Mounting volumes.
+2026-07-08T15:25:17.3185749+00:00 ContainerStatus: Nested mountpoint 
+2026-07-08T15:25:17.3260710+00:00 ContainerStatus: Nested mountpoint volatile/logs
+2026-07-08T15:25:17.3698079+00:00 ContainerStatus: Nested mountpoint 
+2026-07-08T15:25:17.3809550+00:00 ContainerStatus: Nested mountpoint 
+2026-07-08T15:25:17.3817610+00:00 ContainerStatus: Nested mountpoint 
+2026-07-08T15:25:17.3860309+00:00 ContainerStatus: Nested mountpoint 
+2026-07-08T15:25:17.4597526+00:00 ContainerStatus: State: Starting, Action: CreatingContainer, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Finished pulling container image and mounting volumes for agrisource-api-benno. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-07-08T15:25:17.4598689+00:00 ContainerStatus: Creating container.
+2026-07-08T15:25:17.4602311+00:00 ContainerStatus: Creating pipes for streaming container io.
+2026-07-08T15:25:17.4607702+00:00 ContainerStatus: Creating stdout named pipe at /podr/container/pipe/32bae77033d5_agrisource-api-benno/stdout_58d773ac25e8412fbd7dcab3f283e4c5.
+2026-07-08T15:25:17.4612877+00:00 ContainerStatus: Successfully created stdout named pipe at: /podr/container/pipe/32bae77033d5_agrisource-api-benno/stdout_58d773ac25e8412fbd7dcab3f283e4c5.
+2026-07-08T15:25:17.4620375+00:00 ContainerStatus: Opening named pipe /podr/container/pipe/32bae77033d5_agrisource-api-benno/stdout_58d773ac25e8412fbd7dcab3f283e4c5 for reading in non-blocking mode.
+2026-07-08T15:25:17.4621984+00:00 ContainerStatus: Successfully opened named pipe: /podr/container/pipe/32bae77033d5_agrisource-api-benno/stdout_58d773ac25e8412fbd7dcab3f283e4c5.
+2026-07-08T15:25:17.4626525+00:00 ContainerStatus: Successfully removed non-blocking flag from /podr/container/pipe/32bae77033d5_agrisource-api-benno/stdout_58d773ac25e8412fbd7dcab3f283e4c5.
+2026-07-08T15:25:17.4637525+00:00 ContainerStatus: Creating stderr named pipe at /podr/container/pipe/32bae77033d5_agrisource-api-benno/stderr_2e37edc4bcd94eb9b06ad78be45bbb4c.
+2026-07-08T15:25:17.4640291+00:00 ContainerStatus: Successfully created stderr named pipe at: /podr/container/pipe/32bae77033d5_agrisource-api-benno/stderr_2e37edc4bcd94eb9b06ad78be45bbb4c.
+2026-07-08T15:25:17.4642590+00:00 ContainerStatus: Opening named pipe /podr/container/pipe/32bae77033d5_agrisource-api-benno/stderr_2e37edc4bcd94eb9b06ad78be45bbb4c for reading in non-blocking mode.
+2026-07-08T15:25:17.4644406+00:00 ContainerStatus: Successfully opened named pipe: /podr/container/pipe/32bae77033d5_agrisource-api-benno/stderr_2e37edc4bcd94eb9b06ad78be45bbb4c.
+2026-07-08T15:25:17.4646314+00:00 ContainerStatus: Successfully removed non-blocking flag from /podr/container/pipe/32bae77033d5_agrisource-api-benno/stderr_2e37edc4bcd94eb9b06ad78be45bbb4c.
+2026-07-08T15:25:17.4666164+00:00 ContainerStatus: Creating container with image: appsvc/dotnetcore:8.0_20260504.4.tuxprod from registry: 10.1.0.4:13209 and fully qualified image name: 10.1.0.4:13209/appsvc/dotnetcore:8.0_20260504.4.tuxprod
+2026-07-08T15:25:18.7253083+00:00 ContainerStatus: Starting container: 32bae77033d5_agrisource-api-benno.
+2026-07-08T15:25:18.8168963+00:00 ContainerStatus: Starting watchers and probes.
+2026-07-08T15:25:18.8326661+00:00 ContainerStatus: Starting metrics collection.
+2026-07-08T15:25:18.8361276+00:00 ContainerStatus: Container is running.
+2026-07-08T15:25:18.8362598+00:00 ContainerStatus: State: Starting, Action: CreatingContainer, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Container agrisource-api-benno successfully created and is running., DetailsLevel: INFO
+2026-07-08T15:25:18.8623073+00:00 ContainerStream:    _____                               
+2026-07-08T15:25:18.8685144+00:00 ContainerStream:   /  _  \ __________ _________   ____  
+2026-07-08T15:25:18.8685355+00:00 ContainerStream:  /  /_\  \\___   /  |  \_  __ \_/ __ \ 
+2026-07-08T15:25:18.8685410+00:00 ContainerStream: /    |    \/    /|  |  /|  | \/\  ___/ 
+2026-07-08T15:25:18.8685455+00:00 ContainerStream: \____|__  /_____ \____/ |__|    \___  >
+2026-07-08T15:25:18.8685498+00:00 ContainerStream:         \/      \/                  \/ 
+2026-07-08T15:25:18.8685585+00:00 ContainerStream: A P P   S E R V I C E   O N   L I N U X
+2026-07-08T15:25:18.8685623+00:00 ContainerStream: 
+2026-07-08T15:25:18.8685674+00:00 ContainerStream: Documentation       : http://aka.ms/webapp-linux
+2026-07-08T15:25:18.8685722+00:00 ContainerStream: Dotnet quickstart   : https://aka.ms/dotnet-qs
+2026-07-08T15:25:18.8685774+00:00 ContainerStream: ASP .NETCore Version: 8.0.26
+2026-07-08T15:25:18.8685818+00:00 ContainerStream: Instance Name       : 10-30-1-209
+2026-07-08T15:25:18.8685892+00:00 ContainerStream: Instance Id         : 913cc84cfb96670045c9850c3fbffdaf94b0bde9cef5b283134692af36365ea1
+2026-07-08T15:25:18.8685931+00:00 ContainerStream: 
+2026-07-08T15:25:18.8685977+00:00 ContainerStream: Note: Any data outside '/home' is not persisted
+2026-07-08T15:25:18.9687988+00:00 ContainerStatus: Container start method finished after 1776 ms.
+2026-07-08T15:25:18.9690835+00:00 ContainerStatus: State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Container agrisource-api-benno successfully created and is running., DetailsLevel: INFO
+2026-07-08T15:25:18.9759747+00:00 ContainerStatus: State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-07-08T15:25:20.9551604+00:00 ContainerStream: Starting OpenBSD Secure Shell server: sshd.
+2026-07-08T15:25:20.9596019+00:00 ContainerStream: WEBSITES_INCLUDE_CLOUD_CERTS is not set to true.
+2026-07-08T15:25:20.9978305+00:00 ContainerStream: Updating certificates in /etc/ssl/certs...
+2026-07-08T15:25:25.9920439+00:00 ContainerStream: rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_ECC_Root_CA_2022.pem
+2026-07-08T15:25:25.9925295+00:00 ContainerStream: rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_RSA_Root_CA_2022.pem
+2026-07-08T15:25:26.0700585+00:00 ContainerStream: rehash: warning: skipping ca-certificates.crt,it does not contain exactly one certificate or CRL
+2026-07-08T15:25:26.0937488+00:00 ContainerStream: 4 added, 0 removed; done.
+2026-07-08T15:25:26.0941384+00:00 ContainerStream: Running hooks in /etc/ca-certificates/update.d...
+2026-07-08T15:25:26.0984800+00:00 ContainerStream: done.
+2026-07-08T15:25:26.1056117+00:00 ContainerStream: CA certificates copied and updated successfully.
+2026-07-08T15:25:26.3155746+00:00 ContainerStream: Starting periodic command scheduler: cron.
+2026-07-08T15:25:26.3208272+00:00 ContainerStream: Running oryx create-script -appPath /home/site/wwwroot -output /opt/startup/startup.sh -defaultAppFilePath /defaulthome/hostingstart/hostingstart.dll     -bindPort 8080 -bindPort2 '' -userStartupCommand '' 
+2026-07-08T15:25:26.4270815+00:00 ContainerStream: Could not find build manifest file at '/home/site/wwwroot/oryx-manifest.toml'
+2026-07-08T15:25:26.4290195+00:00 ContainerStream: Could not find operation ID in manifest. Generating an operation id...
+2026-07-08T15:25:26.4297148+00:00 ContainerStream: Build Operation ID: 092687e6-9832-4e75-bbb6-317f2718c524
+2026-07-08T15:25:27.0535997+00:00 ContainerStream: 
+2026-07-08T15:25:27.0536495+00:00 ContainerStream: Agent extension 
+2026-07-08T15:25:27.0536546+00:00 ContainerStream: Before if loop >> DotNet Runtime 
+2026-07-08T15:25:27.1137521+00:00 ContainerStream: DotNet Runtime 8.0Writing output script to '/opt/startup/startup.sh'
+2026-07-08T15:25:27.1808151+00:00 ContainerStream: Trying to find the startup DLL name...
+2026-07-08T15:25:27.1823090+00:00 ContainerStream: Found the startup D name: AgrisourceDashboard.Api.dll
+2026-07-08T15:25:27.1823241+00:00 ContainerStream: Running the command: dotnet "AgrisourceDashboard.Api.dll"
+2026-07-08T15:25:28.7205703+00:00 ContainerStream: info: Microsoft.Hosting.Lifetime[14]
+2026-07-08T15:25:28.7206422+00:00 ContainerStream:       Now listening on: http://[::]:8080
+2026-07-08T15:25:28.7276802+00:00 ContainerStream: info: Microsoft.Hosting.Lifetime[0]
+2026-07-08T15:25:28.7277076+00:00 ContainerStream:       Application started. Press Ctrl+C to shut down.
+2026-07-08T15:25:28.7311634+00:00 ContainerStream: info: Microsoft.Hosting.Lifetime[0]
+2026-07-08T15:25:28.7311860+00:00 ContainerStream:       Hosting environment: Production
+2026-07-08T15:25:28.7312005+00:00 ContainerStream: info: Microsoft.Hosting.Lifetime[0]
+2026-07-08T15:25:28.7312124+00:00 ContainerStream:       Content root path: /home/site/wwwroot
+2026-07-08T15:25:29.1018573+00:00 ContainerStream: warn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]
+2026-07-08T15:25:29.1019320+00:00 ContainerStream:       Failed to determine the https port for redirect.
+2026-07-08T15:25:29.1324500+00:00 ContainerStatus: Site startup probe succeeded after 10.1415521 seconds.
+2026-07-08T15:25:29.2148090+00:00 ContainerStatus: State: Starting, Action: WarmUpProbeSucceeded, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Site startup probe succeeded after 10.1415521 seconds., DetailsLevel: INFO
+2026-07-08T15:25:29.5632228+00:00 ContainerStatus: Site is running with deployment version: 20b03810-92b1-4cd1-82d0-3112c2b3256c
+2026-07-08T15:25:29.5705096+00:00 ContainerStatus: Site started.
+2026-07-08T15:25:29.5721660+00:00 ContainerStatus: State: Started, Action: None, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Site started at 07/08/2026 15:25:29 (UTC), DetailsLevel: INFO
+2026-07-08T15:25:29.6859866+00:00 ContainerStatus: Site is running with patch version DOTNETCORE-8.0.26

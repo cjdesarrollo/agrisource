@@ -1,0 +1,43 @@
+<step title="Incoming Request" date="2026-07-15T00:44:53.603" instance="e1d493" url="/api/publish?type=zip" method="POST" type="request" pid="833,1,26" Accept="*/*" Host="agrisource-api-benno.scm.azurewebsites.net" User-Agent="AZURECLI/2.88.0 (MSI)" Accept-Encoding="gzip, deflate, zstd" Authorization="Bas..." Cache-Control="no-cache" Content-Type="application/octet-stream" Cookie="ARRAffinity=e1d4935dd5eb48d81ddd28ae3e649f435a0a2ec61826325f41404c7f5b13aa3b; ARRAffinitySameSite=e1d4935dd5eb48d81ddd28ae3e649f435a0a2ec61826325f41404c7f5b13aa3b" Content-Length="45909488" x-ms-client-request-id="61208921-7fe6-11f1-8060-00090ffe0001" x-ms-artifact-checksum="3e73f02e573d7aae17ddffc9d248311a18dad4d4ff040e597c2fe60fe30c44d5" X-ARR-LOG-ID="61208921-7fe6-11f1-8060-00090ffe0001" CLIENT-IP="165.98.54.182:62836" X-SITE-DEPLOYMENT-ID="agrisource-api-benno" WAS-DEFAULT-HOSTNAME="agrisource-api-benno.scm.azurewebsites.net" X-Forwarded-Proto="https" X-AppService-Proto="https" X-Forwarded-TlsVersion="1.3" X-WAWS-Unencoded-URL="/api/publish?type=zip" X-Client-IP="165.98.54.182" X-Client-Port="62836" >
+  <step title="OneDeploy" date="2026-07-15T00:44:53.718" >
+    <step title="None repository commit" date="2026-07-15T00:44:53.746" >
+      <step title="Commit id: b485f2f3-dc1f-463b-a134-51c8ad52200f" date="2026-07-15T00:44:53.767" Message="N/A" AuthorName="N/A" AuthorEmail="N/A" /><!-- duration: 10ms -->
+    </step><!-- duration: 36ms -->
+    <step title="Starting PushDeployAsync" date="2026-07-15T00:44:53.786" /><!-- duration: 4ms -->
+    <step title="WEBSITE_RUN_FROM_PACKAGE is set to 1. Writing zip to SitePackagesPath" date="2026-07-15T00:44:53.839" /><!-- duration: 11ms -->
+    <step title="Copying zip to SitePackages /home/data/SitePackages/20260715004453.zip from request body" date="2026-07-15T00:44:53.869" /><!-- duration: 11ms -->
+    <step title="Writing multipart request body to /home/data/SitePackages/20260715004453.zip" date="2026-07-15T00:44:53.893" /><!-- duration: 17ms -->
+    <step title="Writing zip file to /home/data/SitePackages/20260715004453.zip" date="2026-07-15T00:44:53.928" /><!-- duration: 10805ms -->
+    <step title="Attempting to fetch target branch HEAD" date="2026-07-15T00:45:05.459" /><!-- duration: 4ms -->
+    <step title="Acquiring Deployment Lock" date="2026-07-15T00:45:05.468" /><!-- duration: 10ms -->
+    <step title="Acquired Deployment Lock" date="2026-07-15T00:45:05.517" /><!-- duration: 4ms -->
+    <step title="Performing fetch based deployment" date="2026-07-15T00:45:05.531" >
+      <step title="Creating temporary deployment" date="2026-07-15T00:45:05.538" /><!-- duration: 138ms -->
+      <step title="Releasing Deployment Lock" date="2026-07-15T00:45:06.853" /><!-- duration: 7ms -->
+      <step title="None repository commit" date="2026-07-15T00:45:06.913" >
+        <step title="Commit id: b485f2f3-dc1f-463b-a134-51c8ad52200f" date="2026-07-15T00:45:06.917" Message="OneDeploy" AuthorName="N/A" AuthorEmail="N/A" /><!-- duration: 6ms -->
+      </step><!-- duration: 14ms -->
+      <step title="Deployment timer started" date="2026-07-15T00:45:08.938" >
+        <step title="DeploymentManager.Deploy(id:b485f2f3-dc1f-463b-a134-51c8ad52200f)" date="2026-07-15T00:45:08.951" >
+          <step title="Collecting changeset information" date="2026-07-15T00:45:08.994" /><!-- duration: 105ms -->
+          <step title="Updating submodules" date="2026-07-15T00:45:09.108" /><!-- duration: 1186ms -->
+          <step title="Determining deployment builder" date="2026-07-15T00:45:10.634" >
+            <step title="Builder is RunFromZipSiteBuilder" date="2026-07-15T00:45:10.653" /><!-- duration: 4ms -->
+          </step><!-- duration: 30ms -->
+          <step title="PreDeployment: context.CleanOutputPath False" date="2026-07-15T00:45:10.996" >
+            <step title="PreDeployment: context.OutputPath /home/site/wwwroot" date="2026-07-15T00:45:11.151" >
+              <step title="Building" date="2026-07-15T00:45:11.340" >
+                <step title="Modified file to trigger a restart of the app container." date="2026-07-15T00:45:11.818" /><!-- duration: 4ms -->
+                <step title="Skip function trigger and logicapp sync because function is not enabled." date="2026-07-15T00:45:11.832" /><!-- duration: 12ms -->
+              </step><!-- duration: 1617ms -->
+            </step><!-- duration: 1812ms -->
+            <step title="Cleaning up temp files" date="2026-07-15T00:45:12.967" /><!-- duration: 5ms -->
+            <step title="Cleaning up temp files" date="2026-07-15T00:45:12.977" /><!-- duration: 518ms -->
+            <step title="Reloading status file with latest updates" date="2026-07-15T00:45:13.571" >
+              <step title="WebHooksManager.PublishEventAsync: PostDeployment" date="2026-07-15T00:45:13.580" /><!-- duration: 79ms -->
+            </step><!-- duration: 95ms -->
+            <step title="Cleaning up temporary deployment - fetch deployment was successful" date="2026-07-15T00:45:13.674" /><!-- duration: 4ms -->
+          </step><!-- duration: 2839ms -->
+        </step><!-- duration: 4891ms -->
+        <step title="Outgoing response" date="2026-07-15T00:45:13.856" type="response" statusCode="200" statusText="OK" /><!-- duration: 4ms -->
+      </step><!-- duration: 4928ms -->

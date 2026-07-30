@@ -1,0 +1,27 @@
+# Build outputs & dependencies
+bin/
+obj/
+node_modules/
+dist/
+publish_api/
+publish_ui/
+publish_fdd/
+
+# IDE & Tooling
+.vs/
+.gemini/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# System & Temp
+*.zip
+webapp_logs/
+scratch/
+
+# Environment files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local

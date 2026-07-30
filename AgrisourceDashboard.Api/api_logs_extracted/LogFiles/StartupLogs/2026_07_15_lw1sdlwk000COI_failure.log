@@ -1,0 +1,698 @@
+2026-07-14T23:55:57.8345784+00:00 ContainerStatus: State: Stopping, Action: UnmountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 07/14/2026 23:55:52, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site container: agrisource-api-benno terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-07-14T23:55:58.5095098+00:00 ContainerStatus: State: Stopping, Action: StoppingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 07/14/2026 23:55:52, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site container: agrisource-api-benno terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-07-14T23:55:59.1856671+00:00 ContainerStatus: Site: agrisource-api-benno will be blocked for 1 minutes till 07/14/2026 23:56:59
+2026-07-14T23:55:59.1877801+00:00 ContainerStatus: State: Blocked, Action: StoppingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 07/14/2026 23:55:52, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site: agrisource-api-benno will be blocked for 1 minutes till 07/14/2026 23:56:59, DetailsLevel: WARN
+2026-07-14T23:55:59.2402202+00:00 ContainerStatus: State: Stopped, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 07/14/2026 23:55:52, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site stopped at 07/14/2026 23:55:59 (UTC), DetailsLevel: WARN
+2026-07-14T23:55:59.5752823+00:00 ContainerStatus: State: Stopped, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 07/14/2026 23:55:52, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site stopped at 07/14/2026 23:55:59 (UTC), DetailsLevel: WARN
+2026-07-14T23:56:59.2129976+00:00 ContainerStatus: Site: agrisource-api-benno is unblocked.
+2026-07-15T00:06:34.8309875+00:00 ContainerStatus: State: Starting, Action: EstablishingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 07/14/2026 23:55:52, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site stopped at 07/14/2026 23:55:59 (UTC), DetailsLevel: WARN
+2026-07-15T00:06:37.5255836+00:00 ContainerStatus: State: Starting, Action: StartingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 07/14/2026 23:55:52, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site stopped at 07/14/2026 23:55:59 (UTC), DetailsLevel: WARN
+2026-07-15T00:06:37.5337669+00:00 ContainerStatus: Container start method called.
+2026-07-15T00:06:37.5343462+00:00 ContainerStatus: State: Starting, Action: PullingImage, LastError: ContainerTimeout, LastErrorTimestamp: 07/14/2026 23:55:52, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Pulling image 10.1.0.4:13209/appsvc/dotnetcore:8.0_20260504.4.tuxprod for agrisource-api-benno., DetailsLevel: INFO
+2026-07-15T00:06:37.5344387+00:00 ContainerStatus: Establishing network.
+2026-07-15T00:06:37.5442514+00:00 ContainerStatus: Pulling image: appsvc/dotnetcore:8.0_20260504.4.tuxprod.
+2026-07-15T00:06:38.2650445+00:00 ContainerStatus: Container is starting.
+2026-07-15T00:06:38.2651615+00:00 ContainerStatus: State: Starting, Action: MountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 07/14/2026 23:55:52, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Mounting volumes for agrisource-api-benno., DetailsLevel: INFO
+2026-07-15T00:06:38.2656329+00:00 ContainerStatus: Establishing user namespace if not established already.
+2026-07-15T00:06:38.2659759+00:00 ContainerStatus: Establishing network if not established already.
+2026-07-15T00:06:38.2661577+00:00 ContainerStatus: Mounting volumes.
+2026-07-15T00:06:38.2944942+00:00 ContainerStatus: Nested mountpoint site/wwwroot
+2026-07-15T00:06:38.3841669+00:00 ContainerStatus: Nested mountpoint volatile/logs
+2026-07-15T00:06:38.4035549+00:00 ContainerStatus: Nested mountpoint 
+2026-07-15T00:06:38.4918262+00:00 ContainerStatus: Nested mountpoint 
+2026-07-15T00:06:38.8383920+00:00 ContainerStatus: Nested mountpoint 
+2026-07-15T00:06:38.8496859+00:00 ContainerStatus: Nested mountpoint 
+2026-07-15T00:06:39.0887564+00:00 ContainerStatus: Nested mountpoint 
+2026-07-15T00:06:39.8815546+00:00 ContainerStatus: Skipping optional volume mount 'Package' at /home/site/wwwroot.
+2026-07-15T00:06:40.4613046+00:00 ContainerStatus: State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 07/14/2026 23:55:52, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Finished pulling container image and mounting volumes for agrisource-api-benno. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-07-15T00:06:40.4614846+00:00 ContainerStatus: Creating container.
+2026-07-15T00:06:40.4635600+00:00 ContainerStatus: Creating pipes for streaming container io.
+2026-07-15T00:06:40.4735086+00:00 ContainerStatus: Creating stdout named pipe at /podr/container/pipe/83e11e2cff7e_agrisource-api-benno/stdout_2d12f0a48a6644ffa3b9e353270ab5bc.
+2026-07-15T00:06:40.4836801+00:00 ContainerStatus: Successfully created stdout named pipe at: /podr/container/pipe/83e11e2cff7e_agrisource-api-benno/stdout_2d12f0a48a6644ffa3b9e353270ab5bc.
+2026-07-15T00:06:40.5424590+00:00 ContainerStatus: Opening named pipe /podr/container/pipe/83e11e2cff7e_agrisource-api-benno/stdout_2d12f0a48a6644ffa3b9e353270ab5bc for reading in non-blocking mode.
+2026-07-15T00:06:40.5434538+00:00 ContainerStatus: Successfully opened named pipe: /podr/container/pipe/83e11e2cff7e_agrisource-api-benno/stdout_2d12f0a48a6644ffa3b9e353270ab5bc.
+2026-07-15T00:06:40.5616289+00:00 ContainerStatus: Successfully removed non-blocking flag from /podr/container/pipe/83e11e2cff7e_agrisource-api-benno/stdout_2d12f0a48a6644ffa3b9e353270ab5bc.
+2026-07-15T00:06:40.5908370+00:00 ContainerStatus: Creating stderr named pipe at /podr/container/pipe/83e11e2cff7e_agrisource-api-benno/stderr_af0481d90444405bb6e9a15b845ed9b3.
+2026-07-15T00:06:40.5910680+00:00 ContainerStatus: Successfully created stderr named pipe at: /podr/container/pipe/83e11e2cff7e_agrisource-api-benno/stderr_af0481d90444405bb6e9a15b845ed9b3.
+2026-07-15T00:06:40.5911310+00:00 ContainerStatus: Opening named pipe /podr/container/pipe/83e11e2cff7e_agrisource-api-benno/stderr_af0481d90444405bb6e9a15b845ed9b3 for reading in non-blocking mode.
+2026-07-15T00:06:40.5912214+00:00 ContainerStatus: Successfully opened named pipe: /podr/container/pipe/83e11e2cff7e_agrisource-api-benno/stderr_af0481d90444405bb6e9a15b845ed9b3.
+2026-07-15T00:06:40.5912899+00:00 ContainerStatus: Successfully removed non-blocking flag from /podr/container/pipe/83e11e2cff7e_agrisource-api-benno/stderr_af0481d90444405bb6e9a15b845ed9b3.
+2026-07-15T00:06:40.6033741+00:00 ContainerStatus: Creating container with image: appsvc/dotnetcore:8.0_20260504.4.tuxprod from registry: 10.1.0.4:13209 and fully qualified image name: 10.1.0.4:13209/appsvc/dotnetcore:8.0_20260504.4.tuxprod
+2026-07-15T00:06:41.9304516+00:00 ContainerStatus: Starting container: 83e11e2cff7e_agrisource-api-benno.
+2026-07-15T00:06:42.0379757+00:00 ContainerStatus: Starting watchers and probes.
+2026-07-15T00:06:42.0456138+00:00 ContainerStatus: Starting metrics collection.
+2026-07-15T00:06:42.0457937+00:00 ContainerStatus: Container is running.
+2026-07-15T00:06:42.0459690+00:00 ContainerStatus: State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 07/14/2026 23:55:52, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Container agrisource-api-benno successfully created and is running., DetailsLevel: INFO
+2026-07-15T00:06:42.2528768+00:00 ContainerStatus: Container start method finished after 4692 ms.
+2026-07-15T00:06:42.2645010+00:00 ContainerStatus: State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: ContainerTimeout, LastErrorTimestamp: 07/14/2026 23:55:52, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Container agrisource-api-benno successfully created and is running., DetailsLevel: INFO
+2026-07-15T00:06:42.3290684+00:00 ContainerStatus: State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: ContainerTimeout, LastErrorTimestamp: 07/14/2026 23:55:52, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-07-15T00:06:42.5171320+00:00 ContainerStream:    _____                               
+2026-07-15T00:06:42.5171747+00:00 ContainerStream:   /  _  \ __________ _________   ____  
+2026-07-15T00:06:42.5171778+00:00 ContainerStream:  /  /_\  \\___   /  |  \_  __ \_/ __ \ 
+2026-07-15T00:06:42.5171797+00:00 ContainerStream: /    |    \/    /|  |  /|  | \/\  ___/ 
+2026-07-15T00:06:42.5171817+00:00 ContainerStream: \____|__  /_____ \____/ |__|    \___  >
+2026-07-15T00:06:42.5171837+00:00 ContainerStream:         \/      \/                  \/ 
+2026-07-15T00:06:42.5171855+00:00 ContainerStream: A P P   S E R V I C E   O N   L I N U X
+2026-07-15T00:06:42.5171878+00:00 ContainerStream: 
+2026-07-15T00:06:42.5171906+00:00 ContainerStream: Documentation       : http://aka.ms/webapp-linux
+2026-07-15T00:06:42.5171927+00:00 ContainerStream: Dotnet quickstart   : https://aka.ms/dotnet-qs
+2026-07-15T00:06:42.5171946+00:00 ContainerStream: ASP .NETCore Version: 8.0.26
+2026-07-15T00:06:42.5171965+00:00 ContainerStream: Instance Name       : lw1sdlwk000COI
+2026-07-15T00:06:42.5172057+00:00 ContainerStream: Instance Id         : e1d4935dd5eb48d81ddd28ae3e649f435a0a2ec61826325f41404c7f5b13aa3b
+2026-07-15T00:06:42.5172074+00:00 ContainerStream: 
+2026-07-15T00:06:42.5172094+00:00 ContainerStream: Note: Any data outside '/home' is not persisted
+2026-07-15T00:06:45.9842635+00:00 ContainerStream: Starting OpenBSD Secure Shell server: sshd.
+2026-07-15T00:06:46.0071200+00:00 ContainerStream: WEBSITES_INCLUDE_CLOUD_CERTS is not set to true.
+2026-07-15T00:06:46.0858970+00:00 ContainerStream: Updating certificates in /etc/ssl/certs...
+2026-07-15T00:07:13.4102274+00:00 ContainerStream: rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_ECC_Root_CA_2022.pem
+2026-07-15T00:07:13.4268654+00:00 ContainerStream: rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_RSA_Root_CA_2022.pem
+2026-07-15T00:07:14.7840564+00:00 ContainerStream: rehash: warning: skipping ca-certificates.crt,it does not contain exactly one certificate or CRL
+2026-07-15T00:07:14.9033826+00:00 ContainerStream: 4 added, 0 removed; done.
+2026-07-15T00:07:14.9034110+00:00 ContainerStream: Running hooks in /etc/ca-certificates/update.d...
+2026-07-15T00:07:14.9210497+00:00 ContainerStream: done.
+2026-07-15T00:07:14.9816453+00:00 ContainerStream: CA certificates copied and updated successfully.
+2026-07-15T00:07:15.5537713+00:00 ContainerStream: Starting periodic command scheduler: cron.
+2026-07-15T00:07:15.5736436+00:00 ContainerStream: Running oryx create-script -appPath /home/site/wwwroot -output /opt/startup/startup.sh -defaultAppFilePath /defaulthome/hostingstart/hostingstart.dll     -bindPort 8080 -bindPort2 '' -userStartupCommand 'sh -c 'chmod +x AgrisourceDashboard.Api && ./AgrisourceDashboard.Api'' 
+2026-07-15T00:07:16.3258304+00:00 ContainerStream: Could not find build manifest file at '/home/site/wwwroot/oryx-manifest.toml'
+2026-07-15T00:07:16.3258801+00:00 ContainerStream: Could not find operation ID in manifest. Generating an operation id...
+2026-07-15T00:07:16.3258950+00:00 ContainerStream: Build Operation ID: ab70d19b-9cd6-43c6-abba-7beeb2073db6
+2026-07-15T00:07:19.0078416+00:00 ContainerStream: 
+2026-07-15T00:07:19.0078741+00:00 ContainerStream: Agent extension 
+2026-07-15T00:07:19.0078770+00:00 ContainerStream: Before if loop >> DotNet Runtime 
+2026-07-15T00:07:19.0660527+00:00 ContainerStream: DotNet Runtime 8.0Writing output script to '/opt/startup/startup.sh'
+2026-07-15T00:07:45.1613344+00:00 ContainerStream: info: Microsoft.Hosting.Lifetime[14]
+2026-07-15T00:07:45.1613940+00:00 ContainerStream:       Now listening on: http://localhost:5000
+2026-07-15T00:07:45.2728072+00:00 ContainerStream: info: Microsoft.Hosting.Lifetime[0]
+2026-07-15T00:07:45.2728684+00:00 ContainerStream:       Application started. Press Ctrl+C to shut down.
+2026-07-15T00:07:45.3805618+00:00 ContainerStream: info: Microsoft.Hosting.Lifetime[0]
+2026-07-15T00:07:45.3807022+00:00 ContainerStream:       Hosting environment: Production
+2026-07-15T00:07:45.3880390+00:00 ContainerStream: info: Microsoft.Hosting.Lifetime[0]
+2026-07-15T00:07:45.3880713+00:00 ContainerStream:       Content root path: /home/site/wwwroot
+2026-07-15T00:36:42.4955066+00:00 ContainerStatus: Site startup probe failed after 1800.0619968 seconds.
+2026-07-15T00:36:42.8730599+00:00 ContainerStatus: State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:36:42, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: ERR
+2026-07-15T00:36:42.8898529+00:00 ContainerStatus: Failed to start site. Revert by stopping site.
+2026-07-15T00:36:42.8993774+00:00 ContainerStatus: State: Stopping, Action: StoppingSite, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:36:42, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: ERR
+2026-07-15T00:36:42.9178729+00:00 ContainerStatus: State: Stopping, Action: StoppingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:36:42, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: ERR
+2026-07-15T00:36:42.9230348+00:00 ContainerStatus: Container is terminating. Grace period: 5 seconds.
+2026-07-15T00:36:42.9866017+00:00 ContainerStatus: Stop and delete container. Retry count = 0
+2026-07-15T00:36:42.9874530+00:00 ContainerStatus: Stopping container: 83e11e2cff7e_agrisource-api-benno.
+2026-07-15T00:36:48.2153225+00:00 ContainerStatus: Deleting container: 83e11e2cff7e_agrisource-api-benno. Retry count = 0
+2026-07-15T00:36:48.5454164+00:00 ContainerStatus: Container spec TerminationMessagePolicy  path 
+2026-07-15T00:36:48.5465908+00:00 ContainerStatus: Container is terminated. Total time elapsed: 5622 ms.
+2026-07-15T00:36:48.5530578+00:00 ContainerStatus: Site container: agrisource-api-benno terminated during site startup.
+2026-07-15T00:36:48.5554638+00:00 ContainerStatus: State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:36:42, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site container: agrisource-api-benno terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-07-15T00:36:48.5736388+00:00 ContainerStatus: Site: agrisource-api-benno stopped.
+========== New Cold Start Attempt (2026-07-15T00:36:48.5956734+00:00) ==========
+2026-07-15T00:36:48.5956734+00:00 ContainerStatus: State: Stopping, Action: UnmountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:36:42, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site container: agrisource-api-benno terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-07-15T00:36:49.2789278+00:00 ContainerStatus: State: Stopping, Action: StoppingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:36:42, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site container: agrisource-api-benno terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-07-15T00:36:49.6615807+00:00 ContainerStatus: Site: agrisource-api-benno will be blocked for 1 minutes till 07/15/2026 00:37:49
+2026-07-15T00:36:49.6618904+00:00 ContainerStatus: State: Blocked, Action: StoppingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:36:42, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site: agrisource-api-benno will be blocked for 1 minutes till 07/15/2026 00:37:49, DetailsLevel: WARN
+2026-07-15T00:36:49.7630605+00:00 ContainerStatus: State: Stopped, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:36:42, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site stopped at 07/15/2026 00:36:49 (UTC), DetailsLevel: WARN
+2026-07-15T00:36:50.2690386+00:00 ContainerStatus: State: Stopped, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:36:42, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site stopped at 07/15/2026 00:36:49 (UTC), DetailsLevel: WARN
+2026-07-15T00:37:49.6455755+00:00 ContainerStatus: Site: agrisource-api-benno is unblocked.
+2026-07-15T00:39:11.3454216+00:00 ContainerStatus: State: Starting, Action: EstablishingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:36:42, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site stopped at 07/15/2026 00:36:49 (UTC), DetailsLevel: WARN
+2026-07-15T00:39:13.3782028+00:00 ContainerStatus: State: Starting, Action: StartingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:36:42, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site stopped at 07/15/2026 00:36:49 (UTC), DetailsLevel: WARN
+2026-07-15T00:39:13.3795493+00:00 ContainerStatus: Container start method called.
+2026-07-15T00:39:13.3860860+00:00 ContainerStatus: State: Starting, Action: PullingImage, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:36:42, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Pulling image 10.1.0.4:13209/appsvc/dotnetcore:8.0_20260504.4.tuxprod for agrisource-api-benno., DetailsLevel: INFO
+2026-07-15T00:39:13.3865583+00:00 ContainerStatus: Establishing network.
+2026-07-15T00:39:13.3876336+00:00 ContainerStatus: Pulling image: appsvc/dotnetcore:8.0_20260504.4.tuxprod.
+2026-07-15T00:39:13.9240718+00:00 ContainerStatus: Container is starting.
+2026-07-15T00:39:13.9241672+00:00 ContainerStatus: State: Starting, Action: MountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:36:42, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Mounting volumes for agrisource-api-benno., DetailsLevel: INFO
+2026-07-15T00:39:13.9242461+00:00 ContainerStatus: Establishing user namespace if not established already.
+2026-07-15T00:39:13.9243153+00:00 ContainerStatus: Establishing network if not established already.
+2026-07-15T00:39:13.9243900+00:00 ContainerStatus: Mounting volumes.
+2026-07-15T00:39:13.9421714+00:00 ContainerStatus: Nested mountpoint site/wwwroot
+2026-07-15T00:39:13.9917351+00:00 ContainerStatus: Nested mountpoint volatile/logs
+2026-07-15T00:39:14.0506303+00:00 ContainerStatus: Nested mountpoint 
+2026-07-15T00:39:14.0813141+00:00 ContainerStatus: Nested mountpoint 
+2026-07-15T00:39:14.2405246+00:00 ContainerStatus: Nested mountpoint 
+2026-07-15T00:39:14.2417999+00:00 ContainerStatus: Nested mountpoint 
+2026-07-15T00:39:14.3416235+00:00 ContainerStatus: Nested mountpoint 
+2026-07-15T00:39:14.6858665+00:00 ContainerStatus: Skipping optional volume mount 'Package' at /home/site/wwwroot.
+2026-07-15T00:39:14.9397056+00:00 ContainerStatus: State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:36:42, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Finished pulling container image and mounting volumes for agrisource-api-benno. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-07-15T00:39:14.9402235+00:00 ContainerStatus: Creating container.
+2026-07-15T00:39:14.9406030+00:00 ContainerStatus: Creating pipes for streaming container io.
+2026-07-15T00:39:14.9412682+00:00 ContainerStatus: Creating stdout named pipe at /podr/container/pipe/32a247270761_agrisource-api-benno/stdout_c8f25970e7794917abeea9d94d25e3a4.
+2026-07-15T00:39:14.9487381+00:00 ContainerStatus: Successfully created stdout named pipe at: /podr/container/pipe/32a247270761_agrisource-api-benno/stdout_c8f25970e7794917abeea9d94d25e3a4.
+2026-07-15T00:39:14.9498571+00:00 ContainerStatus: Opening named pipe /podr/container/pipe/32a247270761_agrisource-api-benno/stdout_c8f25970e7794917abeea9d94d25e3a4 for reading in non-blocking mode.
+2026-07-15T00:39:14.9505054+00:00 ContainerStatus: Successfully opened named pipe: /podr/container/pipe/32a247270761_agrisource-api-benno/stdout_c8f25970e7794917abeea9d94d25e3a4.
+2026-07-15T00:39:14.9508410+00:00 ContainerStatus: Successfully removed non-blocking flag from /podr/container/pipe/32a247270761_agrisource-api-benno/stdout_c8f25970e7794917abeea9d94d25e3a4.
+2026-07-15T00:39:14.9510498+00:00 ContainerStatus: Creating stderr named pipe at /podr/container/pipe/32a247270761_agrisource-api-benno/stderr_d2b51a1b14e549be91cebba33904fe97.
+2026-07-15T00:39:14.9511630+00:00 ContainerStatus: Successfully created stderr named pipe at: /podr/container/pipe/32a247270761_agrisource-api-benno/stderr_d2b51a1b14e549be91cebba33904fe97.
+2026-07-15T00:39:14.9512105+00:00 ContainerStatus: Opening named pipe /podr/container/pipe/32a247270761_agrisource-api-benno/stderr_d2b51a1b14e549be91cebba33904fe97 for reading in non-blocking mode.
+2026-07-15T00:39:14.9512824+00:00 ContainerStatus: Successfully opened named pipe: /podr/container/pipe/32a247270761_agrisource-api-benno/stderr_d2b51a1b14e549be91cebba33904fe97.
+2026-07-15T00:39:14.9587818+00:00 ContainerStatus: Successfully removed non-blocking flag from /podr/container/pipe/32a247270761_agrisource-api-benno/stderr_d2b51a1b14e549be91cebba33904fe97.
+2026-07-15T00:39:14.9593655+00:00 ContainerStatus: Creating container with image: appsvc/dotnetcore:8.0_20260504.4.tuxprod from registry: 10.1.0.4:13209 and fully qualified image name: 10.1.0.4:13209/appsvc/dotnetcore:8.0_20260504.4.tuxprod
+2026-07-15T00:39:16.1117983+00:00 ContainerStatus: Starting container: 32a247270761_agrisource-api-benno.
+2026-07-15T00:39:16.2483912+00:00 ContainerStatus: Starting watchers and probes.
+2026-07-15T00:39:16.2662226+00:00 ContainerStatus: Starting metrics collection.
+2026-07-15T00:39:16.2672852+00:00 ContainerStatus: Container is running.
+2026-07-15T00:39:16.2673930+00:00 ContainerStatus: State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:36:42, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Container agrisource-api-benno successfully created and is running., DetailsLevel: INFO
+2026-07-15T00:39:16.8313923+00:00 ContainerStatus: Container start method finished after 3451 ms.
+2026-07-15T00:39:16.8608836+00:00 ContainerStatus: State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:36:42, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Container agrisource-api-benno successfully created and is running., DetailsLevel: INFO
+2026-07-15T00:39:16.8611274+00:00 ContainerStatus: State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:36:42, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-07-15T00:39:16.9501466+00:00 ContainerStream:    _____                               
+2026-07-15T00:39:16.9501777+00:00 ContainerStream:   /  _  \ __________ _________   ____  
+2026-07-15T00:39:16.9501812+00:00 ContainerStream:  /  /_\  \\___   /  |  \_  __ \_/ __ \ 
+2026-07-15T00:39:16.9501838+00:00 ContainerStream: /    |    \/    /|  |  /|  | \/\  ___/ 
+2026-07-15T00:39:16.9501865+00:00 ContainerStream: \____|__  /_____ \____/ |__|    \___  >
+2026-07-15T00:39:16.9501978+00:00 ContainerStream:         \/      \/                  \/ 
+2026-07-15T00:39:16.9501999+00:00 ContainerStream: A P P   S E R V I C E   O N   L I N U X
+2026-07-15T00:39:16.9502179+00:00 ContainerStream: 
+2026-07-15T00:39:16.9502199+00:00 ContainerStream: Documentation       : http://aka.ms/webapp-linux
+2026-07-15T00:39:16.9502218+00:00 ContainerStream: Dotnet quickstart   : https://aka.ms/dotnet-qs
+2026-07-15T00:39:16.9502236+00:00 ContainerStream: ASP .NETCore Version: 8.0.26
+2026-07-15T00:39:16.9502414+00:00 ContainerStream: Instance Name       : lw1sdlwk000COI
+2026-07-15T00:39:16.9502437+00:00 ContainerStream: Instance Id         : e1d4935dd5eb48d81ddd28ae3e649f435a0a2ec61826325f41404c7f5b13aa3b
+2026-07-15T00:39:16.9502453+00:00 ContainerStream: 
+2026-07-15T00:39:16.9502472+00:00 ContainerStream: Note: Any data outside '/home' is not persisted
+2026-07-15T00:39:19.5342533+00:00 ContainerStream: Starting OpenBSD Secure Shell server: sshd.
+2026-07-15T00:39:19.5576199+00:00 ContainerStream: WEBSITES_INCLUDE_CLOUD_CERTS is not set to true.
+2026-07-15T00:39:19.6240693+00:00 ContainerStream: Updating certificates in /etc/ssl/certs...
+2026-07-15T00:39:44.6764694+00:00 ContainerStream: rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_ECC_Root_CA_2022.pem
+2026-07-15T00:39:44.6832242+00:00 ContainerStream: rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_RSA_Root_CA_2022.pem
+2026-07-15T00:39:45.6448963+00:00 ContainerStream: rehash: warning: skipping ca-certificates.crt,it does not contain exactly one certificate or CRL
+2026-07-15T00:39:45.8562900+00:00 ContainerStream: 4 added, 0 removed; done.
+2026-07-15T00:39:45.8725835+00:00 ContainerStream: Running hooks in /etc/ca-certificates/update.d...
+2026-07-15T00:39:45.8736565+00:00 ContainerStream: done.
+2026-07-15T00:39:45.8858759+00:00 ContainerStream: CA certificates copied and updated successfully.
+2026-07-15T00:39:46.8798966+00:00 ContainerStream: Starting periodic command scheduler: cron.
+2026-07-15T00:39:46.8991469+00:00 ContainerStream: Running oryx create-script -appPath /home/site/wwwroot -output /opt/startup/startup.sh -defaultAppFilePath /defaulthome/hostingstart/hostingstart.dll     -bindPort 8080 -bindPort2 '' -userStartupCommand 'sh -c 'chmod +x AgrisourceDashboard.Api && ./AgrisourceDashboard.Api'' 
+2026-07-15T00:39:47.9364860+00:00 ContainerStream: Could not find build manifest file at '/home/site/wwwroot/oryx-manifest.toml'
+2026-07-15T00:39:47.9549059+00:00 ContainerStream: Could not find operation ID in manifest. Generating an operation id...
+2026-07-15T00:39:47.9549406+00:00 ContainerStream: Build Operation ID: 71cd4ecf-533a-42f1-8939-9e983592b8d2
+2026-07-15T00:39:48.6956872+00:00 ContainerStream: 
+2026-07-15T00:39:48.6969697+00:00 ContainerStream: Agent extension 
+2026-07-15T00:39:48.6987959+00:00 ContainerStream: Before if loop >> DotNet Runtime 
+2026-07-15T00:39:48.7567808+00:00 ContainerStream: DotNet Runtime 8.0Writing output script to '/opt/startup/startup.sh'
+2026-07-15T00:39:58.1327423+00:00 ContainerStream: info: Microsoft.Hosting.Lifetime[14]
+2026-07-15T00:39:58.1327967+00:00 ContainerStream:       Now listening on: http://localhost:5000
+2026-07-15T00:39:58.1624998+00:00 ContainerStream: info: Microsoft.Hosting.Lifetime[0]
+2026-07-15T00:39:58.1625460+00:00 ContainerStream:       Application started. Press Ctrl+C to shut down.
+2026-07-15T00:39:58.1813435+00:00 ContainerStream: info: Microsoft.Hosting.Lifetime[0]
+2026-07-15T00:39:58.1813611+00:00 ContainerStream:       Hosting environment: Production
+2026-07-15T00:39:58.1813639+00:00 ContainerStream: info: Microsoft.Hosting.Lifetime[0]
+2026-07-15T00:39:58.1813658+00:00 ContainerStream:       Content root path: /home/site/wwwroot
+2026-07-15T00:45:22.6640736+00:00 ContainerStatus: Update mount on running container.
+2026-07-15T00:45:23.6754410+00:00 ContainerStatus: Container failed to remount volume. Terminate.
+2026-07-15T00:45:23.6826970+00:00 ContainerStatus: Container is terminating. Grace period: 5 seconds.
+2026-07-15T00:45:23.7337087+00:00 ContainerStatus: Stop and delete container. Retry count = 0
+2026-07-15T00:45:23.7356006+00:00 ContainerStatus: Stopping container: 32a247270761_agrisource-api-benno.
+2026-07-15T00:45:29.4893587+00:00 ContainerStatus: Deleting container: 32a247270761_agrisource-api-benno. Retry count = 0
+2026-07-15T00:45:30.9532337+00:00 ContainerStatus: Container spec TerminationMessagePolicy  path 
+2026-07-15T00:45:30.9712326+00:00 ContainerStatus: Container is terminated. Total time elapsed: 7287 ms.
+2026-07-15T00:45:30.9721855+00:00 ContainerStatus: Site container: agrisource-api-benno terminated during site startup.
+2026-07-15T00:45:31.0127371+00:00 ContainerStatus: State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:36:42, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site container: agrisource-api-benno terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-07-15T00:45:31.5778798+00:00 ContainerStatus: Site startup probe failed after 374.5403884 seconds.
+2026-07-15T00:45:32.5515889+00:00 ContainerStatus: State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:45:32, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site container: agrisource-api-benno terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-07-15T00:45:32.7815517+00:00 ContainerStatus: Failed to start site. Revert by stopping site.
+2026-07-15T00:45:32.8507727+00:00 ContainerStatus: State: Stopping, Action: StoppingSite, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:45:32, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site container: agrisource-api-benno terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-07-15T00:45:32.9300603+00:00 ContainerStatus: State: Stopping, Action: StoppingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:45:32, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site container: agrisource-api-benno terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-07-15T00:45:32.9363832+00:00 ContainerStatus: Site: agrisource-api-benno stopped.
+========== New Cold Start Attempt (2026-07-15T00:46:20.0086097+00:00) ==========
+2026-07-15T00:46:20.0086097+00:00 ContainerStatus: State: Starting, Action: EstablishingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:45:32, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site stopped at 07/15/2026 00:45:36 (UTC), DetailsLevel: WARN
+2026-07-15T00:46:24.5713629+00:00 ContainerStatus: State: Starting, Action: StartingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:45:32, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site stopped at 07/15/2026 00:45:36 (UTC), DetailsLevel: WARN
+2026-07-15T00:46:24.5722920+00:00 ContainerStatus: Container start method called.
+2026-07-15T00:46:24.5723779+00:00 ContainerStatus: State: Starting, Action: PullingImage, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:45:32, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Pulling image 10.1.0.4:13209/appsvc/dotnetcore:8.0_20260504.4.tuxprod for agrisource-api-benno., DetailsLevel: INFO
+2026-07-15T00:46:24.5725074+00:00 ContainerStatus: Establishing network.
+2026-07-15T00:46:24.5726019+00:00 ContainerStatus: Pulling image: appsvc/dotnetcore:8.0_20260504.4.tuxprod.
+2026-07-15T00:46:25.7358934+00:00 ContainerStatus: Container is starting.
+2026-07-15T00:46:25.7368095+00:00 ContainerStatus: State: Starting, Action: MountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:45:32, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Mounting volumes for agrisource-api-benno., DetailsLevel: INFO
+2026-07-15T00:46:25.7369055+00:00 ContainerStatus: Establishing user namespace if not established already.
+2026-07-15T00:46:25.7369932+00:00 ContainerStatus: Establishing network if not established already.
+2026-07-15T00:46:25.7370619+00:00 ContainerStatus: Mounting volumes.
+2026-07-15T00:46:25.7371558+00:00 ContainerStatus: Nested mountpoint site/wwwroot
+2026-07-15T00:46:25.8344695+00:00 ContainerStatus: Nested mountpoint volatile/logs
+2026-07-15T00:46:26.1344071+00:00 ContainerStatus: Nested mountpoint 
+2026-07-15T00:46:26.2354863+00:00 ContainerStatus: Nested mountpoint 
+2026-07-15T00:46:26.6233310+00:00 ContainerStatus: Nested mountpoint 
+2026-07-15T00:46:26.8099307+00:00 ContainerStatus: Nested mountpoint 
+2026-07-15T00:46:27.1961955+00:00 ContainerStatus: Nested mountpoint 
+2026-07-15T00:46:33.6967938+00:00 ContainerStatus: State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:45:32, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Finished pulling container image and mounting volumes for agrisource-api-benno. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-07-15T00:46:33.6969578+00:00 ContainerStatus: Creating container.
+2026-07-15T00:46:33.6970615+00:00 ContainerStatus: Creating pipes for streaming container io.
+2026-07-15T00:46:33.8358920+00:00 ContainerStatus: Creating stdout named pipe at /podr/container/pipe/acbbdab4d4b1_agrisource-api-benno/stdout_6cc71d9e96a342fea2da7093a0800e28.
+2026-07-15T00:46:33.8545837+00:00 ContainerStatus: Successfully created stdout named pipe at: /podr/container/pipe/acbbdab4d4b1_agrisource-api-benno/stdout_6cc71d9e96a342fea2da7093a0800e28.
+2026-07-15T00:46:33.8547628+00:00 ContainerStatus: Opening named pipe /podr/container/pipe/acbbdab4d4b1_agrisource-api-benno/stdout_6cc71d9e96a342fea2da7093a0800e28 for reading in non-blocking mode.
+2026-07-15T00:46:33.8548963+00:00 ContainerStatus: Successfully opened named pipe: /podr/container/pipe/acbbdab4d4b1_agrisource-api-benno/stdout_6cc71d9e96a342fea2da7093a0800e28.
+2026-07-15T00:46:33.8550194+00:00 ContainerStatus: Successfully removed non-blocking flag from /podr/container/pipe/acbbdab4d4b1_agrisource-api-benno/stdout_6cc71d9e96a342fea2da7093a0800e28.
+2026-07-15T00:46:33.8654510+00:00 ContainerStatus: Creating stderr named pipe at /podr/container/pipe/acbbdab4d4b1_agrisource-api-benno/stderr_3cdff698ef6142dc9714bc8ecb95be0e.
+2026-07-15T00:46:33.8931719+00:00 ContainerStatus: Successfully created stderr named pipe at: /podr/container/pipe/acbbdab4d4b1_agrisource-api-benno/stderr_3cdff698ef6142dc9714bc8ecb95be0e.
+2026-07-15T00:46:33.8933357+00:00 ContainerStatus: Opening named pipe /podr/container/pipe/acbbdab4d4b1_agrisource-api-benno/stderr_3cdff698ef6142dc9714bc8ecb95be0e for reading in non-blocking mode.
+2026-07-15T00:46:33.8934930+00:00 ContainerStatus: Successfully opened named pipe: /podr/container/pipe/acbbdab4d4b1_agrisource-api-benno/stderr_3cdff698ef6142dc9714bc8ecb95be0e.
+2026-07-15T00:46:33.8949945+00:00 ContainerStatus: Successfully removed non-blocking flag from /podr/container/pipe/acbbdab4d4b1_agrisource-api-benno/stderr_3cdff698ef6142dc9714bc8ecb95be0e.
+2026-07-15T00:46:33.8954065+00:00 ContainerStatus: Creating container with image: appsvc/dotnetcore:8.0_20260504.4.tuxprod from registry: 10.1.0.4:13209 and fully qualified image name: 10.1.0.4:13209/appsvc/dotnetcore:8.0_20260504.4.tuxprod
+2026-07-15T00:46:35.4812207+00:00 ContainerStatus: Starting container: acbbdab4d4b1_agrisource-api-benno.
+2026-07-15T00:46:35.5964991+00:00 ContainerStatus: Starting watchers and probes.
+2026-07-15T00:46:35.6087373+00:00 ContainerStatus: Starting metrics collection.
+2026-07-15T00:46:35.6155303+00:00 ContainerStatus: Container is running.
+2026-07-15T00:46:35.6185336+00:00 ContainerStatus: State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:45:32, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Container agrisource-api-benno successfully created and is running., DetailsLevel: INFO
+2026-07-15T00:46:36.3933798+00:00 ContainerStatus: Container start method finished after 11821 ms.
+2026-07-15T00:46:36.4878620+00:00 ContainerStream:    _____                               
+2026-07-15T00:46:36.5150654+00:00 ContainerStream:   /  _  \ __________ _________   ____  
+2026-07-15T00:46:36.5150923+00:00 ContainerStream:  /  /_\  \\___   /  |  \_  __ \_/ __ \ 
+2026-07-15T00:46:36.5150967+00:00 ContainerStream: /    |    \/    /|  |  /|  | \/\  ___/ 
+2026-07-15T00:46:36.5150993+00:00 ContainerStream: \____|__  /_____ \____/ |__|    \___  >
+2026-07-15T00:46:36.5151017+00:00 ContainerStream:         \/      \/                  \/ 
+2026-07-15T00:46:36.5151064+00:00 ContainerStream: A P P   S E R V I C E   O N   L I N U X
+2026-07-15T00:46:36.5151131+00:00 ContainerStream: 
+2026-07-15T00:46:36.5151171+00:00 ContainerStream: Documentation       : http://aka.ms/webapp-linux
+2026-07-15T00:46:36.5151199+00:00 ContainerStream: Dotnet quickstart   : https://aka.ms/dotnet-qs
+2026-07-15T00:46:36.5151226+00:00 ContainerStream: ASP .NETCore Version: 8.0.26
+2026-07-15T00:46:36.5151252+00:00 ContainerStream: Instance Name       : lw1sdlwk000COI
+2026-07-15T00:46:36.5151292+00:00 ContainerStream: Instance Id         : e1d4935dd5eb48d81ddd28ae3e649f435a0a2ec61826325f41404c7f5b13aa3b
+2026-07-15T00:46:36.5151315+00:00 ContainerStream: 
+2026-07-15T00:46:36.5151369+00:00 ContainerStream: Note: Any data outside '/home' is not persisted
+2026-07-15T00:46:36.5548340+00:00 ContainerStatus: State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:45:32, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Container agrisource-api-benno successfully created and is running., DetailsLevel: INFO
+2026-07-15T00:46:36.5548997+00:00 ContainerStatus: State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:45:32, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-07-15T00:46:46.2235025+00:00 ContainerStream: Starting OpenBSD Secure Shell server: sshd.
+2026-07-15T00:46:46.2448287+00:00 ContainerStream: WEBSITES_INCLUDE_CLOUD_CERTS is not set to true.
+2026-07-15T00:46:46.3118288+00:00 ContainerStream: Updating certificates in /etc/ssl/certs...
+2026-07-15T00:47:27.9971357+00:00 ContainerStream: rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_ECC_Root_CA_2022.pem
+2026-07-15T00:47:28.0048150+00:00 ContainerStream: rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_RSA_Root_CA_2022.pem
+2026-07-15T00:47:28.6720963+00:00 ContainerStream: rehash: warning: skipping ca-certificates.crt,it does not contain exactly one certificate or CRL
+2026-07-15T00:47:28.8284096+00:00 ContainerStream: 4 added, 0 removed; done.
+2026-07-15T00:47:28.8357315+00:00 ContainerStream: Running hooks in /etc/ca-certificates/update.d...
+2026-07-15T00:47:28.8469768+00:00 ContainerStream: done.
+2026-07-15T00:47:28.8856380+00:00 ContainerStream: CA certificates copied and updated successfully.
+2026-07-15T00:47:30.7033248+00:00 ContainerStream: Starting periodic command scheduler: cron.
+2026-07-15T00:47:30.9606492+00:00 ContainerStream: Running oryx create-script -appPath /home/site/wwwroot -output /opt/startup/startup.sh -defaultAppFilePath /defaulthome/hostingstart/hostingstart.dll     -bindPort 8080 -bindPort2 '' -userStartupCommand 'chmod 777 ./AgrisourceDashboard.Api ; ./AgrisourceDashboard.Api' 
+2026-07-15T00:47:33.4273821+00:00 ContainerStream: Could not find build manifest file at '/home/site/wwwroot/oryx-manifest.toml'
+2026-07-15T00:47:33.4362922+00:00 ContainerStream: Could not find operation ID in manifest. Generating an operation id...
+2026-07-15T00:47:33.4861578+00:00 ContainerStream: Build Operation ID: 50a730af-d3d8-4dd9-9618-078e98d0c393
+2026-07-15T00:47:35.6179307+00:00 ContainerStream: 
+2026-07-15T00:47:35.6179653+00:00 ContainerStream: Agent extension 
+2026-07-15T00:47:35.6179692+00:00 ContainerStream: Before if loop >> DotNet Runtime 
+2026-07-15T00:47:35.8208380+00:00 ContainerStream: DotNet Runtime 8.0Writing output script to '/opt/startup/startup.sh'
+2026-07-15T00:47:35.9293631+00:00 ContainerStream: Running user provided startup command...
+2026-07-15T00:47:35.9585373+00:00 ContainerStream: chmod: changing permissions of './AgrisourceDashboard.Api': Read-only file system
+2026-07-15T00:47:36.0159051+00:00 ContainerStatus: Container has finished running with exit code: 1.
+2026-07-15T00:47:36.0179494+00:00 ContainerStatus: Container is terminating. Grace period: 5 seconds.
+2026-07-15T00:47:36.0350294+00:00 ContainerStatus: Stop and delete container. Retry count = 0
+2026-07-15T00:47:36.0351276+00:00 ContainerStatus: Stopping container: acbbdab4d4b1_agrisource-api-benno.
+2026-07-15T00:47:36.2410451+00:00 ContainerStatus: Deleting container: acbbdab4d4b1_agrisource-api-benno. Retry count = 0
+2026-07-15T00:47:36.9706168+00:00 ContainerStatus: Container spec TerminationMessagePolicy  path 
+2026-07-15T00:47:36.9719119+00:00 ContainerStatus: Container is terminated. Total time elapsed: 952 ms.
+2026-07-15T00:47:36.9720544+00:00 ContainerStatus: Site container: agrisource-api-benno terminated during site startup.
+2026-07-15T00:47:36.9728501+00:00 ContainerStatus: State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:45:32, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site container: agrisource-api-benno terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-07-15T00:47:37.0311436+00:00 ContainerStatus: Site startup probe failed after 60.4449003 seconds.
+2026-07-15T00:47:37.5111408+00:00 ContainerStatus: State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:47:37, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site container: agrisource-api-benno terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-07-15T00:47:37.5690021+00:00 ContainerStatus: Failed to start site. Revert by stopping site.
+2026-07-15T00:47:37.5691284+00:00 ContainerStatus: State: Stopping, Action: StoppingSite, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:47:37, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site container: agrisource-api-benno terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-07-15T00:47:37.5693009+00:00 ContainerStatus: State: Stopping, Action: StoppingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:47:37, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site container: agrisource-api-benno terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-07-15T00:47:37.5693154+00:00 ContainerStatus: Site: agrisource-api-benno stopped.
+========== New Cold Start Attempt (2026-07-15T00:47:37.5777706+00:00) ==========
+2026-07-15T00:47:37.5777706+00:00 ContainerStatus: State: Stopping, Action: UnmountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:47:37, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site container: agrisource-api-benno terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-07-15T00:47:38.5640658+00:00 ContainerStatus: State: Stopping, Action: StoppingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:47:37, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site container: agrisource-api-benno terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-07-15T00:47:38.9317290+00:00 ContainerStatus: State: Stopped, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:47:37, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site stopped at 07/15/2026 00:47:38 (UTC), DetailsLevel: ERR
+2026-07-15T00:47:40.0576826+00:00 ContainerStatus: State: Stopped, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:47:37, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site stopped at 07/15/2026 00:47:38 (UTC), DetailsLevel: ERR
+2026-07-15T00:47:40.6355597+00:00 ContainerStatus: State: Starting, Action: EstablishingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:47:37, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site stopped at 07/15/2026 00:47:38 (UTC), DetailsLevel: ERR
+2026-07-15T00:47:43.4669231+00:00 ContainerStatus: State: Starting, Action: StartingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:47:37, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site stopped at 07/15/2026 00:47:38 (UTC), DetailsLevel: ERR
+2026-07-15T00:47:43.4670439+00:00 ContainerStatus: Container start method called.
+2026-07-15T00:47:43.4670784+00:00 ContainerStatus: State: Starting, Action: PullingImage, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:47:37, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Pulling image 10.1.0.4:13209/appsvc/dotnetcore:8.0_20260504.4.tuxprod for agrisource-api-benno., DetailsLevel: INFO
+2026-07-15T00:47:43.4671362+00:00 ContainerStatus: Establishing network.
+2026-07-15T00:47:43.4672349+00:00 ContainerStatus: Pulling image: appsvc/dotnetcore:8.0_20260504.4.tuxprod.
+2026-07-15T00:47:43.9044820+00:00 ContainerStatus: Container is starting.
+2026-07-15T00:47:43.9046096+00:00 ContainerStatus: State: Starting, Action: MountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:47:37, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Mounting volumes for agrisource-api-benno., DetailsLevel: INFO
+2026-07-15T00:47:43.9047132+00:00 ContainerStatus: Establishing user namespace if not established already.
+2026-07-15T00:47:43.9052480+00:00 ContainerStatus: Establishing network if not established already.
+2026-07-15T00:47:43.9111063+00:00 ContainerStatus: Mounting volumes.
+2026-07-15T00:47:43.9114277+00:00 ContainerStatus: Nested mountpoint site/wwwroot
+2026-07-15T00:47:43.9522511+00:00 ContainerStatus: Nested mountpoint volatile/logs
+2026-07-15T00:47:44.0360334+00:00 ContainerStatus: Nested mountpoint 
+2026-07-15T00:47:44.0485136+00:00 ContainerStatus: Nested mountpoint 
+2026-07-15T00:47:44.2049990+00:00 ContainerStatus: Nested mountpoint 
+2026-07-15T00:47:44.2656417+00:00 ContainerStatus: Nested mountpoint 
+2026-07-15T00:47:44.5525830+00:00 ContainerStatus: Nested mountpoint 
+2026-07-15T00:47:46.4877627+00:00 ContainerStatus: State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:47:37, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Finished pulling container image and mounting volumes for agrisource-api-benno. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-07-15T00:47:46.4905589+00:00 ContainerStatus: Creating container.
+2026-07-15T00:47:46.4909413+00:00 ContainerStatus: Creating pipes for streaming container io.
+2026-07-15T00:47:46.5578446+00:00 ContainerStatus: Creating stdout named pipe at /podr/container/pipe/a4f4c7134569_agrisource-api-benno/stdout_8bd12a30e9d8432b93f1dcc7f0980b4d.
+2026-07-15T00:47:46.5580740+00:00 ContainerStatus: Successfully created stdout named pipe at: /podr/container/pipe/a4f4c7134569_agrisource-api-benno/stdout_8bd12a30e9d8432b93f1dcc7f0980b4d.
+2026-07-15T00:47:46.5581264+00:00 ContainerStatus: Opening named pipe /podr/container/pipe/a4f4c7134569_agrisource-api-benno/stdout_8bd12a30e9d8432b93f1dcc7f0980b4d for reading in non-blocking mode.
+2026-07-15T00:47:46.5582062+00:00 ContainerStatus: Successfully opened named pipe: /podr/container/pipe/a4f4c7134569_agrisource-api-benno/stdout_8bd12a30e9d8432b93f1dcc7f0980b4d.
+2026-07-15T00:47:46.5582702+00:00 ContainerStatus: Successfully removed non-blocking flag from /podr/container/pipe/a4f4c7134569_agrisource-api-benno/stdout_8bd12a30e9d8432b93f1dcc7f0980b4d.
+2026-07-15T00:47:46.6056530+00:00 ContainerStatus: Creating stderr named pipe at /podr/container/pipe/a4f4c7134569_agrisource-api-benno/stderr_6e618ce0a48e468b9f071f08cbfec2be.
+2026-07-15T00:47:46.6081179+00:00 ContainerStatus: Successfully created stderr named pipe at: /podr/container/pipe/a4f4c7134569_agrisource-api-benno/stderr_6e618ce0a48e468b9f071f08cbfec2be.
+2026-07-15T00:47:46.6083730+00:00 ContainerStatus: Opening named pipe /podr/container/pipe/a4f4c7134569_agrisource-api-benno/stderr_6e618ce0a48e468b9f071f08cbfec2be for reading in non-blocking mode.
+2026-07-15T00:47:46.6469262+00:00 ContainerStatus: Successfully opened named pipe: /podr/container/pipe/a4f4c7134569_agrisource-api-benno/stderr_6e618ce0a48e468b9f071f08cbfec2be.
+2026-07-15T00:47:46.6949603+00:00 ContainerStatus: Successfully removed non-blocking flag from /podr/container/pipe/a4f4c7134569_agrisource-api-benno/stderr_6e618ce0a48e468b9f071f08cbfec2be.
+2026-07-15T00:47:46.6973114+00:00 ContainerStatus: Creating container with image: appsvc/dotnetcore:8.0_20260504.4.tuxprod from registry: 10.1.0.4:13209 and fully qualified image name: 10.1.0.4:13209/appsvc/dotnetcore:8.0_20260504.4.tuxprod
+2026-07-15T00:47:48.4234653+00:00 ContainerStatus: Starting container: a4f4c7134569_agrisource-api-benno.
+2026-07-15T00:47:48.6544642+00:00 ContainerStatus: Starting watchers and probes.
+2026-07-15T00:47:48.6852563+00:00 ContainerStream:    _____                               
+2026-07-15T00:47:48.6852793+00:00 ContainerStream:   /  _  \ __________ _________   ____  
+2026-07-15T00:47:48.6852819+00:00 ContainerStream:  /  /_\  \\___   /  |  \_  __ \_/ __ \ 
+2026-07-15T00:47:48.6852836+00:00 ContainerStream: /    |    \/    /|  |  /|  | \/\  ___/ 
+2026-07-15T00:47:48.6852854+00:00 ContainerStream: \____|__  /_____ \____/ |__|    \___  >
+2026-07-15T00:47:48.6852875+00:00 ContainerStream:         \/      \/                  \/ 
+2026-07-15T00:47:48.6852901+00:00 ContainerStream: A P P   S E R V I C E   O N   L I N U X
+2026-07-15T00:47:48.6852983+00:00 ContainerStream: 
+2026-07-15T00:47:48.6853002+00:00 ContainerStream: Documentation       : http://aka.ms/webapp-linux
+2026-07-15T00:47:48.6853020+00:00 ContainerStream: Dotnet quickstart   : https://aka.ms/dotnet-qs
+2026-07-15T00:47:48.6853037+00:00 ContainerStream: ASP .NETCore Version: 8.0.26
+2026-07-15T00:47:48.6853054+00:00 ContainerStream: Instance Name       : lw1sdlwk000COI
+2026-07-15T00:47:48.6853075+00:00 ContainerStream: Instance Id         : e1d4935dd5eb48d81ddd28ae3e649f435a0a2ec61826325f41404c7f5b13aa3b
+2026-07-15T00:47:48.6853090+00:00 ContainerStream: 
+2026-07-15T00:47:48.6853107+00:00 ContainerStream: Note: Any data outside '/home' is not persisted
+2026-07-15T00:47:48.6942360+00:00 ContainerStatus: Starting metrics collection.
+2026-07-15T00:47:48.6944345+00:00 ContainerStatus: Container is running.
+2026-07-15T00:47:48.6945936+00:00 ContainerStatus: State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:47:37, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Container agrisource-api-benno successfully created and is running., DetailsLevel: INFO
+2026-07-15T00:47:49.3549115+00:00 ContainerStatus: Container start method finished after 5887 ms.
+2026-07-15T00:47:49.3554709+00:00 ContainerStatus: State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:47:37, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Container agrisource-api-benno successfully created and is running., DetailsLevel: INFO
+2026-07-15T00:47:49.3554976+00:00 ContainerStatus: State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:47:37, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-07-15T00:47:54.4567453+00:00 ContainerStream: Starting OpenBSD Secure Shell server: sshd.
+2026-07-15T00:47:54.4992909+00:00 ContainerStream: WEBSITES_INCLUDE_CLOUD_CERTS is not set to true.
+2026-07-15T00:47:54.5687004+00:00 ContainerStream: Updating certificates in /etc/ssl/certs...
+2026-07-15T00:48:28.0815161+00:00 ContainerStream: rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_ECC_Root_CA_2022.pem
+2026-07-15T00:48:28.0884658+00:00 ContainerStream: rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_RSA_Root_CA_2022.pem
+2026-07-15T00:48:28.6687651+00:00 ContainerStream: rehash: warning: skipping ca-certificates.crt,it does not contain exactly one certificate or CRL
+2026-07-15T00:48:28.8566312+00:00 ContainerStream: 4 added, 0 removed; done.
+2026-07-15T00:48:28.8824166+00:00 ContainerStream: Running hooks in /etc/ca-certificates/update.d...
+2026-07-15T00:48:28.8825023+00:00 ContainerStream: done.
+2026-07-15T00:48:28.9033076+00:00 ContainerStream: CA certificates copied and updated successfully.
+2026-07-15T00:48:29.6235719+00:00 ContainerStream: Starting periodic command scheduler: cron.
+2026-07-15T00:48:29.6400782+00:00 ContainerStream: Running oryx create-script -appPath /home/site/wwwroot -output /opt/startup/startup.sh -defaultAppFilePath /defaulthome/hostingstart/hostingstart.dll     -bindPort 8080 -bindPort2 '' -userStartupCommand 'chmod 777 ./AgrisourceDashboard.Api ; ./AgrisourceDashboard.Api' 
+2026-07-15T00:48:30.7177048+00:00 ContainerStream: Could not find build manifest file at '/home/site/wwwroot/oryx-manifest.toml'
+2026-07-15T00:48:30.7177624+00:00 ContainerStream: Could not find operation ID in manifest. Generating an operation id...
+2026-07-15T00:48:30.7184946+00:00 ContainerStream: Build Operation ID: a2b8387a-5022-4bd5-a860-10079d248f5b
+2026-07-15T00:48:31.9715999+00:00 ContainerStream: 
+2026-07-15T00:48:31.9722107+00:00 ContainerStream: Agent extension 
+2026-07-15T00:48:31.9726115+00:00 ContainerStream: Before if loop >> DotNet Runtime 
+2026-07-15T00:48:32.0620117+00:00 ContainerStream: DotNet Runtime 8.0Writing output script to '/opt/startup/startup.sh'
+2026-07-15T00:48:32.1433107+00:00 ContainerStream: Running user provided startup command...
+2026-07-15T00:48:32.2032490+00:00 ContainerStream: chmod: changing permissions of './AgrisourceDashboard.Api': Read-only file system
+2026-07-15T00:48:32.2730793+00:00 ContainerStatus: Container has finished running with exit code: 1.
+2026-07-15T00:48:32.2739944+00:00 ContainerStatus: Container is terminating. Grace period: 5 seconds.
+2026-07-15T00:48:32.2850229+00:00 ContainerStatus: Stop and delete container. Retry count = 0
+2026-07-15T00:48:32.2860309+00:00 ContainerStatus: Stopping container: a4f4c7134569_agrisource-api-benno.
+2026-07-15T00:48:32.4685800+00:00 ContainerStatus: Deleting container: a4f4c7134569_agrisource-api-benno. Retry count = 0
+2026-07-15T00:48:33.1503523+00:00 ContainerStatus: Container spec TerminationMessagePolicy  path 
+2026-07-15T00:48:33.1510261+00:00 ContainerStatus: Container is terminated. Total time elapsed: 876 ms.
+2026-07-15T00:48:33.1518291+00:00 ContainerStatus: Site container: agrisource-api-benno terminated during site startup.
+2026-07-15T00:48:33.1681861+00:00 ContainerStatus: State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:47:37, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site container: agrisource-api-benno terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-07-15T00:48:33.2139506+00:00 ContainerStatus: Site startup probe failed after 43.8492102 seconds.
+2026-07-15T00:48:33.9001946+00:00 ContainerStatus: State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:48:33, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site container: agrisource-api-benno terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-07-15T00:48:33.9400067+00:00 ContainerStatus: Failed to start site. Revert by stopping site.
+2026-07-15T00:48:33.9687173+00:00 ContainerStatus: State: Stopping, Action: StoppingSite, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:48:33, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site container: agrisource-api-benno terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-07-15T00:48:33.9766367+00:00 ContainerStatus: State: Stopping, Action: StoppingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:48:33, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site container: agrisource-api-benno terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-07-15T00:48:33.9766589+00:00 ContainerStatus: Site: agrisource-api-benno stopped.
+========== New Cold Start Attempt (2026-07-15T00:48:33.9972107+00:00) ==========
+2026-07-15T00:48:33.9972107+00:00 ContainerStatus: State: Stopping, Action: UnmountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:48:33, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site container: agrisource-api-benno terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-07-15T00:48:34.8741405+00:00 ContainerStatus: State: Stopping, Action: StoppingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:48:33, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site container: agrisource-api-benno terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-07-15T00:48:35.4008603+00:00 ContainerStatus: Site: agrisource-api-benno will be blocked for 1 minutes till 07/15/2026 00:49:35
+2026-07-15T00:48:35.4014572+00:00 ContainerStatus: State: Blocked, Action: StoppingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:48:33, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site: agrisource-api-benno will be blocked for 1 minutes till 07/15/2026 00:49:35, DetailsLevel: WARN
+2026-07-15T00:48:35.4018145+00:00 ContainerStatus: State: Stopped, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:48:33, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site stopped at 07/15/2026 00:48:35 (UTC), DetailsLevel: WARN
+2026-07-15T00:48:36.2371322+00:00 ContainerStatus: State: Stopped, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:48:33, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site stopped at 07/15/2026 00:48:35 (UTC), DetailsLevel: WARN
+2026-07-15T00:49:35.4015069+00:00 ContainerStatus: Site: agrisource-api-benno is unblocked.
+2026-07-15T00:49:50.9889663+00:00 ContainerStatus: State: Starting, Action: EstablishingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:48:33, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site stopped at 07/15/2026 00:48:35 (UTC), DetailsLevel: WARN
+2026-07-15T00:49:54.3385865+00:00 ContainerStatus: State: Starting, Action: StartingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:48:33, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site stopped at 07/15/2026 00:48:35 (UTC), DetailsLevel: WARN
+2026-07-15T00:49:54.3386738+00:00 ContainerStatus: Container start method called.
+2026-07-15T00:49:54.3387136+00:00 ContainerStatus: State: Starting, Action: PullingImage, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:48:33, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Pulling image 10.1.0.4:13209/appsvc/dotnetcore:8.0_20260504.4.tuxprod for agrisource-api-benno., DetailsLevel: INFO
+2026-07-15T00:49:54.3387761+00:00 ContainerStatus: Establishing network.
+2026-07-15T00:49:54.3388507+00:00 ContainerStatus: Pulling image: appsvc/dotnetcore:8.0_20260504.4.tuxprod.
+2026-07-15T00:49:55.0789179+00:00 ContainerStatus: Container is starting.
+2026-07-15T00:49:55.0863349+00:00 ContainerStatus: State: Starting, Action: MountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:48:33, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Mounting volumes for agrisource-api-benno., DetailsLevel: INFO
+2026-07-15T00:49:55.0865463+00:00 ContainerStatus: Establishing user namespace if not established already.
+2026-07-15T00:49:55.0873178+00:00 ContainerStatus: Establishing network if not established already.
+2026-07-15T00:49:55.0883696+00:00 ContainerStatus: Mounting volumes.
+2026-07-15T00:49:55.0886567+00:00 ContainerStatus: Nested mountpoint site/wwwroot
+2026-07-15T00:49:55.1268898+00:00 ContainerStatus: Nested mountpoint volatile/logs
+2026-07-15T00:49:55.2781423+00:00 ContainerStatus: Nested mountpoint 
+2026-07-15T00:49:55.3262666+00:00 ContainerStatus: Nested mountpoint 
+2026-07-15T00:49:55.4043076+00:00 ContainerStatus: Nested mountpoint 
+2026-07-15T00:49:55.4444776+00:00 ContainerStatus: Nested mountpoint 
+2026-07-15T00:49:55.6269827+00:00 ContainerStatus: Nested mountpoint 
+2026-07-15T00:49:58.0550216+00:00 ContainerStatus: State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:48:33, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Finished pulling container image and mounting volumes for agrisource-api-benno. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-07-15T00:49:58.0559001+00:00 ContainerStatus: Creating container.
+2026-07-15T00:49:58.0563602+00:00 ContainerStatus: Creating pipes for streaming container io.
+2026-07-15T00:49:58.0564407+00:00 ContainerStatus: Creating stdout named pipe at /podr/container/pipe/d24246af82f0_agrisource-api-benno/stdout_3b18c92275a84513a5d96eb79918507d.
+2026-07-15T00:49:58.0566162+00:00 ContainerStatus: Successfully created stdout named pipe at: /podr/container/pipe/d24246af82f0_agrisource-api-benno/stdout_3b18c92275a84513a5d96eb79918507d.
+2026-07-15T00:49:58.0566674+00:00 ContainerStatus: Opening named pipe /podr/container/pipe/d24246af82f0_agrisource-api-benno/stdout_3b18c92275a84513a5d96eb79918507d for reading in non-blocking mode.
+2026-07-15T00:49:58.0567494+00:00 ContainerStatus: Successfully opened named pipe: /podr/container/pipe/d24246af82f0_agrisource-api-benno/stdout_3b18c92275a84513a5d96eb79918507d.
+2026-07-15T00:49:58.0568012+00:00 ContainerStatus: Successfully removed non-blocking flag from /podr/container/pipe/d24246af82f0_agrisource-api-benno/stdout_3b18c92275a84513a5d96eb79918507d.
+2026-07-15T00:49:58.1247515+00:00 ContainerStatus: Creating stderr named pipe at /podr/container/pipe/d24246af82f0_agrisource-api-benno/stderr_cf9983b9a3eb4e2cae3981efd5ab0730.
+2026-07-15T00:49:58.1261032+00:00 ContainerStatus: Successfully created stderr named pipe at: /podr/container/pipe/d24246af82f0_agrisource-api-benno/stderr_cf9983b9a3eb4e2cae3981efd5ab0730.
+2026-07-15T00:49:58.1264553+00:00 ContainerStatus: Opening named pipe /podr/container/pipe/d24246af82f0_agrisource-api-benno/stderr_cf9983b9a3eb4e2cae3981efd5ab0730 for reading in non-blocking mode.
+2026-07-15T00:49:58.1266060+00:00 ContainerStatus: Successfully opened named pipe: /podr/container/pipe/d24246af82f0_agrisource-api-benno/stderr_cf9983b9a3eb4e2cae3981efd5ab0730.
+2026-07-15T00:49:58.1267236+00:00 ContainerStatus: Successfully removed non-blocking flag from /podr/container/pipe/d24246af82f0_agrisource-api-benno/stderr_cf9983b9a3eb4e2cae3981efd5ab0730.
+2026-07-15T00:49:58.1366508+00:00 ContainerStatus: Creating container with image: appsvc/dotnetcore:8.0_20260504.4.tuxprod from registry: 10.1.0.4:13209 and fully qualified image name: 10.1.0.4:13209/appsvc/dotnetcore:8.0_20260504.4.tuxprod
+2026-07-15T00:49:59.9667851+00:00 ContainerStatus: Starting container: d24246af82f0_agrisource-api-benno.
+2026-07-15T00:50:00.2235415+00:00 ContainerStatus: Starting watchers and probes.
+2026-07-15T00:50:00.2237631+00:00 ContainerStatus: Starting metrics collection.
+2026-07-15T00:50:00.2319880+00:00 ContainerStatus: Container is running.
+2026-07-15T00:50:00.2321176+00:00 ContainerStatus: State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:48:33, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Container agrisource-api-benno successfully created and is running., DetailsLevel: INFO
+2026-07-15T00:50:00.4913437+00:00 ContainerStatus: Container start method finished after 6152 ms.
+2026-07-15T00:50:00.5229891+00:00 ContainerStatus: State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:48:33, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Container agrisource-api-benno successfully created and is running., DetailsLevel: INFO
+2026-07-15T00:50:00.5230838+00:00 ContainerStatus: State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:48:33, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-07-15T00:50:00.8789597+00:00 ContainerStream:    _____                               
+2026-07-15T00:50:00.8790834+00:00 ContainerStream:   /  _  \ __________ _________   ____  
+2026-07-15T00:50:00.8790876+00:00 ContainerStream:  /  /_\  \\___   /  |  \_  __ \_/ __ \ 
+2026-07-15T00:50:00.8790901+00:00 ContainerStream: /    |    \/    /|  |  /|  | \/\  ___/ 
+2026-07-15T00:50:00.8790922+00:00 ContainerStream: \____|__  /_____ \____/ |__|    \___  >
+2026-07-15T00:50:00.8791053+00:00 ContainerStream:         \/      \/                  \/ 
+2026-07-15T00:50:00.8791074+00:00 ContainerStream: A P P   S E R V I C E   O N   L I N U X
+2026-07-15T00:50:00.8791093+00:00 ContainerStream: 
+2026-07-15T00:50:00.8791116+00:00 ContainerStream: Documentation       : http://aka.ms/webapp-linux
+2026-07-15T00:50:00.8791137+00:00 ContainerStream: Dotnet quickstart   : https://aka.ms/dotnet-qs
+2026-07-15T00:50:00.8791157+00:00 ContainerStream: ASP .NETCore Version: 8.0.26
+2026-07-15T00:50:00.8791177+00:00 ContainerStream: Instance Name       : lw1sdlwk000COI
+2026-07-15T00:50:00.8791205+00:00 ContainerStream: Instance Id         : e1d4935dd5eb48d81ddd28ae3e649f435a0a2ec61826325f41404c7f5b13aa3b
+2026-07-15T00:50:00.8791222+00:00 ContainerStream: 
+2026-07-15T00:50:00.8791243+00:00 ContainerStream: Note: Any data outside '/home' is not persisted
+2026-07-15T00:50:10.2089094+00:00 ContainerStream: Starting OpenBSD Secure Shell server: sshd.
+2026-07-15T00:50:10.2503898+00:00 ContainerStream: WEBSITES_INCLUDE_CLOUD_CERTS is not set to true.
+2026-07-15T00:50:10.3597187+00:00 ContainerStream: Updating certificates in /etc/ssl/certs...
+2026-07-15T00:51:09.1542624+00:00 ContainerStream: rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_ECC_Root_CA_2022.pem
+2026-07-15T00:51:09.1745035+00:00 ContainerStream: rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_RSA_Root_CA_2022.pem
+2026-07-15T00:51:09.8648756+00:00 ContainerStream: rehash: warning: skipping ca-certificates.crt,it does not contain exactly one certificate or CRL
+2026-07-15T00:51:09.9860264+00:00 ContainerStream: 4 added, 0 removed; done.
+2026-07-15T00:51:09.9866550+00:00 ContainerStream: Running hooks in /etc/ca-certificates/update.d...
+2026-07-15T00:51:10.0041786+00:00 ContainerStream: done.
+2026-07-15T00:51:10.1337605+00:00 ContainerStream: CA certificates copied and updated successfully.
+2026-07-15T00:51:11.0344870+00:00 ContainerStream: Starting periodic command scheduler: cron.
+2026-07-15T00:51:11.0848984+00:00 ContainerStream: Running oryx create-script -appPath /home/site/wwwroot -output /opt/startup/startup.sh -defaultAppFilePath /defaulthome/hostingstart/hostingstart.dll     -bindPort 8080 -bindPort2 '' -userStartupCommand 'chmod 777 ./AgrisourceDashboard.Api ; ./AgrisourceDashboard.Api' 
+2026-07-15T00:51:11.9501228+00:00 ContainerStream: Could not find build manifest file at '/home/site/wwwroot/oryx-manifest.toml'
+2026-07-15T00:51:11.9501888+00:00 ContainerStream: Could not find operation ID in manifest. Generating an operation id...
+2026-07-15T00:51:11.9501922+00:00 ContainerStream: Build Operation ID: 7ba4e2a7-3157-444b-9a97-a608389a9756
+2026-07-15T00:51:13.1978155+00:00 ContainerStream: 
+2026-07-15T00:51:13.2001531+00:00 ContainerStream: Agent extension 
+2026-07-15T00:51:13.2172360+00:00 ContainerStream: Before if loop >> DotNet Runtime 
+2026-07-15T00:51:13.2500449+00:00 ContainerStream: DotNet Runtime 8.0Writing output script to '/opt/startup/startup.sh'
+2026-07-15T00:51:13.3670780+00:00 ContainerStream: Running user provided startup command...
+2026-07-15T00:51:13.4075245+00:00 ContainerStream: chmod: changing permissions of './AgrisourceDashboard.Api': Read-only file system
+2026-07-15T00:51:13.6036354+00:00 ContainerStatus: Container has finished running with exit code: 1.
+2026-07-15T00:51:13.6037361+00:00 ContainerStatus: Container is terminating. Grace period: 5 seconds.
+2026-07-15T00:51:13.6047478+00:00 ContainerStatus: Stop and delete container. Retry count = 0
+2026-07-15T00:51:13.6049123+00:00 ContainerStatus: Stopping container: d24246af82f0_agrisource-api-benno.
+2026-07-15T00:51:13.9371461+00:00 ContainerStatus: Deleting container: d24246af82f0_agrisource-api-benno. Retry count = 0
+2026-07-15T00:51:14.6826208+00:00 ContainerStatus: Container spec TerminationMessagePolicy  path 
+2026-07-15T00:51:14.9671727+00:00 ContainerStatus: Container is terminated. Total time elapsed: 1362 ms.
+2026-07-15T00:51:14.9718523+00:00 ContainerStatus: Site container: agrisource-api-benno terminated during site startup.
+2026-07-15T00:51:14.9726847+00:00 ContainerStatus: State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:48:33, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site container: agrisource-api-benno terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-07-15T00:51:15.0046264+00:00 ContainerStatus: Site startup probe failed after 74.481008 seconds.
+2026-07-15T00:51:15.3634569+00:00 ContainerStatus: State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:51:15, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site container: agrisource-api-benno terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-07-15T00:51:15.4332529+00:00 ContainerStatus: Failed to start site. Revert by stopping site.
+2026-07-15T00:51:15.4361579+00:00 ContainerStatus: State: Stopping, Action: StoppingSite, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:51:15, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site container: agrisource-api-benno terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-07-15T00:51:15.4435363+00:00 ContainerStatus: State: Stopping, Action: StoppingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:51:15, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site container: agrisource-api-benno terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-07-15T00:51:15.4435560+00:00 ContainerStatus: Site: agrisource-api-benno stopped.
+========== New Cold Start Attempt (2026-07-15T00:51:15.4522188+00:00) ==========
+2026-07-15T00:51:15.4522188+00:00 ContainerStatus: State: Stopping, Action: UnmountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:51:15, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site container: agrisource-api-benno terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-07-15T00:51:16.2885883+00:00 ContainerStatus: State: Stopping, Action: StoppingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:51:15, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site container: agrisource-api-benno terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-07-15T00:51:16.5423546+00:00 ContainerStatus: Site: agrisource-api-benno will be blocked for 1 minutes till 07/15/2026 00:52:16
+2026-07-15T00:51:16.5425741+00:00 ContainerStatus: State: Blocked, Action: StoppingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:51:15, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site: agrisource-api-benno will be blocked for 1 minutes till 07/15/2026 00:52:16, DetailsLevel: WARN
+2026-07-15T00:51:16.5495999+00:00 ContainerStatus: State: Stopped, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:51:15, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site stopped at 07/15/2026 00:51:16 (UTC), DetailsLevel: WARN
+2026-07-15T00:51:17.6970549+00:00 ContainerStatus: State: Stopped, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:51:15, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site stopped at 07/15/2026 00:51:16 (UTC), DetailsLevel: WARN
+2026-07-15T00:52:16.5496220+00:00 ContainerStatus: Site: agrisource-api-benno is unblocked.
+2026-07-15T00:57:23.8704790+00:00 ContainerStatus: State: Starting, Action: EstablishingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:51:15, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site stopped at 07/15/2026 00:51:16 (UTC), DetailsLevel: WARN
+2026-07-15T00:57:30.0351681+00:00 ContainerStatus: State: Starting, Action: StartingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:51:15, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site stopped at 07/15/2026 00:51:16 (UTC), DetailsLevel: WARN
+2026-07-15T00:57:30.0366394+00:00 ContainerStatus: Container start method called.
+2026-07-15T00:57:30.1068353+00:00 ContainerStatus: State: Starting, Action: PullingImage, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:51:15, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Pulling image 10.1.0.4:13209/appsvc/dotnetcore:8.0_20260504.4.tuxprod for agrisource-api-benno., DetailsLevel: INFO
+2026-07-15T00:57:30.1145471+00:00 ContainerStatus: Establishing network.
+2026-07-15T00:57:30.3446641+00:00 ContainerStatus: Pulling image: appsvc/dotnetcore:8.0_20260504.4.tuxprod.
+2026-07-15T00:57:32.3163928+00:00 ContainerStatus: Container is starting.
+2026-07-15T00:57:32.3165456+00:00 ContainerStatus: State: Starting, Action: MountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:51:15, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Mounting volumes for agrisource-api-benno., DetailsLevel: INFO
+2026-07-15T00:57:32.3167444+00:00 ContainerStatus: Establishing user namespace if not established already.
+2026-07-15T00:57:32.3168171+00:00 ContainerStatus: Establishing network if not established already.
+2026-07-15T00:57:32.3168901+00:00 ContainerStatus: Mounting volumes.
+2026-07-15T00:57:32.3553661+00:00 ContainerStatus: Nested mountpoint site/wwwroot
+2026-07-15T00:57:32.6244636+00:00 ContainerStatus: Nested mountpoint volatile/logs
+2026-07-15T00:57:32.6537865+00:00 ContainerStatus: Nested mountpoint 
+2026-07-15T00:57:33.0240309+00:00 ContainerStatus: Nested mountpoint 
+2026-07-15T00:57:33.5522194+00:00 ContainerStatus: Nested mountpoint 
+2026-07-15T00:57:33.6511108+00:00 ContainerStatus: Nested mountpoint 
+2026-07-15T00:57:33.9369142+00:00 ContainerStatus: Nested mountpoint 
+2026-07-15T00:57:36.8363710+00:00 ContainerStatus: State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:51:15, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Finished pulling container image and mounting volumes for agrisource-api-benno. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-07-15T00:57:36.8364699+00:00 ContainerStatus: Creating container.
+2026-07-15T00:57:37.0633269+00:00 ContainerStatus: Creating pipes for streaming container io.
+2026-07-15T00:57:37.0744338+00:00 ContainerStatus: Creating stdout named pipe at /podr/container/pipe/b9e0a87837d4_agrisource-api-benno/stdout_51060ebbab9b41edbf739900eb3dac1c.
+2026-07-15T00:57:37.1245161+00:00 ContainerStatus: Successfully created stdout named pipe at: /podr/container/pipe/b9e0a87837d4_agrisource-api-benno/stdout_51060ebbab9b41edbf739900eb3dac1c.
+2026-07-15T00:57:37.1311392+00:00 ContainerStatus: Opening named pipe /podr/container/pipe/b9e0a87837d4_agrisource-api-benno/stdout_51060ebbab9b41edbf739900eb3dac1c for reading in non-blocking mode.
+2026-07-15T00:57:37.1312658+00:00 ContainerStatus: Successfully opened named pipe: /podr/container/pipe/b9e0a87837d4_agrisource-api-benno/stdout_51060ebbab9b41edbf739900eb3dac1c.
+2026-07-15T00:57:37.1341946+00:00 ContainerStatus: Successfully removed non-blocking flag from /podr/container/pipe/b9e0a87837d4_agrisource-api-benno/stdout_51060ebbab9b41edbf739900eb3dac1c.
+2026-07-15T00:57:37.1414293+00:00 ContainerStatus: Creating stderr named pipe at /podr/container/pipe/b9e0a87837d4_agrisource-api-benno/stderr_4d054854ba9e472498ce2c04e528d757.
+2026-07-15T00:57:37.1416140+00:00 ContainerStatus: Successfully created stderr named pipe at: /podr/container/pipe/b9e0a87837d4_agrisource-api-benno/stderr_4d054854ba9e472498ce2c04e528d757.
+2026-07-15T00:57:37.1419232+00:00 ContainerStatus: Opening named pipe /podr/container/pipe/b9e0a87837d4_agrisource-api-benno/stderr_4d054854ba9e472498ce2c04e528d757 for reading in non-blocking mode.
+2026-07-15T00:57:37.1420250+00:00 ContainerStatus: Successfully opened named pipe: /podr/container/pipe/b9e0a87837d4_agrisource-api-benno/stderr_4d054854ba9e472498ce2c04e528d757.
+2026-07-15T00:57:37.1420816+00:00 ContainerStatus: Successfully removed non-blocking flag from /podr/container/pipe/b9e0a87837d4_agrisource-api-benno/stderr_4d054854ba9e472498ce2c04e528d757.
+2026-07-15T00:57:37.1725565+00:00 ContainerStatus: Creating container with image: appsvc/dotnetcore:8.0_20260504.4.tuxprod from registry: 10.1.0.4:13209 and fully qualified image name: 10.1.0.4:13209/appsvc/dotnetcore:8.0_20260504.4.tuxprod
+2026-07-15T00:57:39.6317423+00:00 ContainerStatus: Starting container: b9e0a87837d4_agrisource-api-benno.
+2026-07-15T00:57:40.1037420+00:00 ContainerStatus: Starting watchers and probes.
+2026-07-15T00:57:40.1618192+00:00 ContainerStatus: Starting metrics collection.
+2026-07-15T00:57:40.1720170+00:00 ContainerStatus: Container is running.
+2026-07-15T00:57:40.1721437+00:00 ContainerStatus: State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:51:15, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Container agrisource-api-benno successfully created and is running., DetailsLevel: INFO
+2026-07-15T00:57:40.6566887+00:00 ContainerStatus: Container start method finished after 10619 ms.
+2026-07-15T00:57:40.6568975+00:00 ContainerStatus: State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:51:15, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Container agrisource-api-benno successfully created and is running., DetailsLevel: INFO
+2026-07-15T00:57:40.6569271+00:00 ContainerStatus: State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:51:15, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-07-15T00:57:40.9359896+00:00 ContainerStream:    _____                               
+2026-07-15T00:57:40.9368335+00:00 ContainerStream:   /  _  \ __________ _________   ____  
+2026-07-15T00:57:40.9368470+00:00 ContainerStream:  /  /_\  \\___   /  |  \_  __ \_/ __ \ 
+2026-07-15T00:57:40.9368495+00:00 ContainerStream: /    |    \/    /|  |  /|  | \/\  ___/ 
+2026-07-15T00:57:40.9368516+00:00 ContainerStream: \____|__  /_____ \____/ |__|    \___  >
+2026-07-15T00:57:40.9368537+00:00 ContainerStream:         \/      \/                  \/ 
+2026-07-15T00:57:40.9368558+00:00 ContainerStream: A P P   S E R V I C E   O N   L I N U X
+2026-07-15T00:57:40.9368577+00:00 ContainerStream: 
+2026-07-15T00:57:40.9368600+00:00 ContainerStream: Documentation       : http://aka.ms/webapp-linux
+2026-07-15T00:57:40.9368622+00:00 ContainerStream: Dotnet quickstart   : https://aka.ms/dotnet-qs
+2026-07-15T00:57:40.9368643+00:00 ContainerStream: ASP .NETCore Version: 8.0.26
+2026-07-15T00:57:40.9368664+00:00 ContainerStream: Instance Name       : lw1sdlwk000COI
+2026-07-15T00:57:40.9368695+00:00 ContainerStream: Instance Id         : e1d4935dd5eb48d81ddd28ae3e649f435a0a2ec61826325f41404c7f5b13aa3b
+2026-07-15T00:57:40.9368714+00:00 ContainerStream: 
+2026-07-15T00:57:40.9368736+00:00 ContainerStream: Note: Any data outside '/home' is not persisted
+2026-07-15T00:57:50.3904405+00:00 ContainerStream: Starting OpenBSD Secure Shell server: sshd.
+2026-07-15T00:57:50.4489506+00:00 ContainerStream: WEBSITES_INCLUDE_CLOUD_CERTS is not set to true.
+2026-07-15T00:57:50.5971769+00:00 ContainerStream: Updating certificates in /etc/ssl/certs...
+2026-07-15T00:58:33.5941869+00:00 ContainerStream: rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_ECC_Root_CA_2022.pem
+2026-07-15T00:58:33.5942326+00:00 ContainerStream: rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_RSA_Root_CA_2022.pem
+2026-07-15T00:58:34.1381508+00:00 ContainerStream: rehash: warning: skipping ca-certificates.crt,it does not contain exactly one certificate or CRL
+2026-07-15T00:58:34.2264380+00:00 ContainerStream: 4 added, 0 removed; done.
+2026-07-15T00:58:34.2369559+00:00 ContainerStream: Running hooks in /etc/ca-certificates/update.d...
+2026-07-15T00:58:34.2463823+00:00 ContainerStream: done.
+2026-07-15T00:58:34.2983552+00:00 ContainerStream: CA certificates copied and updated successfully.
+2026-07-15T00:58:35.0384161+00:00 ContainerStream: Starting periodic command scheduler: cron.
+2026-07-15T00:58:35.0817665+00:00 ContainerStream: Running oryx create-script -appPath /home/site/wwwroot -output /opt/startup/startup.sh -defaultAppFilePath /defaulthome/hostingstart/hostingstart.dll     -bindPort 8080 -bindPort2 '' -userStartupCommand 'chmod 777 ./AgrisourceDashboard.Api ; ./AgrisourceDashboard.Api' 
+2026-07-15T00:58:36.2975788+00:00 ContainerStream: Could not find build manifest file at '/home/site/wwwroot/oryx-manifest.toml'
+2026-07-15T00:58:36.3146126+00:00 ContainerStream: Could not find operation ID in manifest. Generating an operation id...
+2026-07-15T00:58:36.3146379+00:00 ContainerStream: Build Operation ID: 255c1a5f-d4bc-4f6e-bfe4-4d61e3ed383d
+2026-07-15T00:58:37.6016738+00:00 ContainerStream: 
+2026-07-15T00:58:37.6019795+00:00 ContainerStream: Agent extension 
+2026-07-15T00:58:37.6020657+00:00 ContainerStream: Before if loop >> DotNet Runtime 
+2026-07-15T00:58:37.6605863+00:00 ContainerStream: DotNet Runtime 8.0Writing output script to '/opt/startup/startup.sh'
+2026-07-15T00:58:37.8692595+00:00 ContainerStream: Running user provided startup command...
+2026-07-15T00:58:37.9056798+00:00 ContainerStream: chmod: changing permissions of './AgrisourceDashboard.Api': Read-only file system
+2026-07-15T00:58:38.0365557+00:00 ContainerStatus: Container has finished running with exit code: 1.
+2026-07-15T00:58:38.0371574+00:00 ContainerStatus: Container is terminating. Grace period: 5 seconds.
+2026-07-15T00:58:38.0654611+00:00 ContainerStatus: Stop and delete container. Retry count = 0
+2026-07-15T00:58:38.0656457+00:00 ContainerStatus: Stopping container: b9e0a87837d4_agrisource-api-benno.
+2026-07-15T00:58:38.1937036+00:00 ContainerStatus: Deleting container: b9e0a87837d4_agrisource-api-benno. Retry count = 0
+2026-07-15T00:58:38.7389834+00:00 ContainerStatus: Container spec TerminationMessagePolicy  path 
+2026-07-15T00:58:38.7766079+00:00 ContainerStatus: Container is terminated. Total time elapsed: 724 ms.
+2026-07-15T00:58:38.7783902+00:00 ContainerStatus: Site container: agrisource-api-benno terminated during site startup.
+2026-07-15T00:58:38.7865865+00:00 ContainerStatus: State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:51:15, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site container: agrisource-api-benno terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-07-15T00:58:38.8563856+00:00 ContainerStatus: Site startup probe failed after 57.9598773 seconds.
+2026-07-15T00:58:39.1642845+00:00 ContainerStatus: State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:58:39, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site container: agrisource-api-benno terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-07-15T00:58:39.2254348+00:00 ContainerStatus: Failed to start site. Revert by stopping site.
+2026-07-15T00:58:39.2260861+00:00 ContainerStatus: State: Stopping, Action: StoppingSite, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:58:39, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site container: agrisource-api-benno terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-07-15T00:58:39.2263031+00:00 ContainerStatus: State: Stopping, Action: StoppingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:58:39, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site container: agrisource-api-benno terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-07-15T00:58:39.2339280+00:00 ContainerStatus: Site: agrisource-api-benno stopped.
+========== New Cold Start Attempt (2026-07-15T00:58:39.2539610+00:00) ==========
+2026-07-15T00:58:39.2539610+00:00 ContainerStatus: State: Stopping, Action: UnmountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:58:39, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site container: agrisource-api-benno terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-07-15T00:58:40.6214963+00:00 ContainerStatus: State: Stopping, Action: StoppingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:58:39, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site container: agrisource-api-benno terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-07-15T00:58:41.1558765+00:00 ContainerStatus: Site: agrisource-api-benno will be blocked for 2 minutes till 07/15/2026 01:00:41
+2026-07-15T00:58:41.1562526+00:00 ContainerStatus: State: Blocked, Action: StoppingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:58:39, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site: agrisource-api-benno will be blocked for 2 minutes till 07/15/2026 01:00:41, DetailsLevel: WARN
+2026-07-15T00:58:41.2415482+00:00 ContainerStatus: State: Stopped, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:58:39, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site stopped at 07/15/2026 00:58:41 (UTC), DetailsLevel: WARN
+2026-07-15T00:58:41.9015668+00:00 ContainerStatus: State: Stopped, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:58:39, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site stopped at 07/15/2026 00:58:41 (UTC), DetailsLevel: WARN
+2026-07-15T01:00:41.1565823+00:00 ContainerStatus: State: Blocked, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:58:39, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site is blocked due to multiple, consecutive cold start failures. Site scheduled to be unblocked at 07/15/2026 01:00:41, DetailsLevel: WARN
+2026-07-15T01:00:41.1577354+00:00 ContainerStatus: Start site prohibitted because the site is being blocked.
+2026-07-15T01:00:41.3449743+00:00 ContainerStatus: Site: agrisource-api-benno is unblocked.
+2026-07-15T01:00:55.9978603+00:00 ContainerStatus: State: Starting, Action: EstablishingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:58:39, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site is blocked due to multiple, consecutive cold start failures. Site scheduled to be unblocked at 07/15/2026 01:00:41, DetailsLevel: WARN
+2026-07-15T01:00:58.2647217+00:00 ContainerStatus: State: Starting, Action: StartingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:58:39, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site is blocked due to multiple, consecutive cold start failures. Site scheduled to be unblocked at 07/15/2026 01:00:41, DetailsLevel: WARN
+2026-07-15T01:00:58.2652162+00:00 ContainerStatus: Container start method called.
+2026-07-15T01:00:58.2668496+00:00 ContainerStatus: State: Starting, Action: PullingImage, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:58:39, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Pulling image 10.1.0.4:13209/appsvc/dotnetcore:8.0_20260504.4.tuxprod for agrisource-api-benno., DetailsLevel: INFO
+2026-07-15T01:00:58.2755228+00:00 ContainerStatus: Establishing network.
+2026-07-15T01:00:58.2764016+00:00 ContainerStatus: Pulling image: appsvc/dotnetcore:8.0_20260504.4.tuxprod.
+2026-07-15T01:00:58.7153363+00:00 ContainerStatus: Container is starting.
+2026-07-15T01:00:58.7154149+00:00 ContainerStatus: State: Starting, Action: MountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:58:39, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Mounting volumes for agrisource-api-benno., DetailsLevel: INFO
+2026-07-15T01:00:58.7154647+00:00 ContainerStatus: Establishing user namespace if not established already.
+2026-07-15T01:00:58.7155322+00:00 ContainerStatus: Establishing network if not established already.
+2026-07-15T01:00:58.7156057+00:00 ContainerStatus: Mounting volumes.
+2026-07-15T01:00:58.7164140+00:00 ContainerStatus: Nested mountpoint site/wwwroot
+2026-07-15T01:00:58.7440268+00:00 ContainerStatus: Nested mountpoint volatile/logs
+2026-07-15T01:00:58.8750639+00:00 ContainerStatus: Nested mountpoint 
+2026-07-15T01:00:58.9643564+00:00 ContainerStatus: Nested mountpoint 
+2026-07-15T01:00:59.2545666+00:00 ContainerStatus: Nested mountpoint 
+2026-07-15T01:00:59.3129496+00:00 ContainerStatus: Nested mountpoint 
+2026-07-15T01:00:59.3522764+00:00 ContainerStatus: Nested mountpoint 
+2026-07-15T01:01:01.8360800+00:00 ContainerStatus: State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:58:39, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Finished pulling container image and mounting volumes for agrisource-api-benno. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-07-15T01:01:01.8443989+00:00 ContainerStatus: Creating container.
+2026-07-15T01:01:01.8445610+00:00 ContainerStatus: Creating pipes for streaming container io.
+2026-07-15T01:01:01.8446920+00:00 ContainerStatus: Creating stdout named pipe at /podr/container/pipe/8f92360e5247_agrisource-api-benno/stdout_1360927cfefa496da13bb31e4a895b14.
+2026-07-15T01:01:01.8563957+00:00 ContainerStatus: Successfully created stdout named pipe at: /podr/container/pipe/8f92360e5247_agrisource-api-benno/stdout_1360927cfefa496da13bb31e4a895b14.
+2026-07-15T01:01:01.8568482+00:00 ContainerStatus: Opening named pipe /podr/container/pipe/8f92360e5247_agrisource-api-benno/stdout_1360927cfefa496da13bb31e4a895b14 for reading in non-blocking mode.
+2026-07-15T01:01:01.8570198+00:00 ContainerStatus: Successfully opened named pipe: /podr/container/pipe/8f92360e5247_agrisource-api-benno/stdout_1360927cfefa496da13bb31e4a895b14.
+2026-07-15T01:01:01.8649070+00:00 ContainerStatus: Successfully removed non-blocking flag from /podr/container/pipe/8f92360e5247_agrisource-api-benno/stdout_1360927cfefa496da13bb31e4a895b14.
+2026-07-15T01:01:01.8659279+00:00 ContainerStatus: Creating stderr named pipe at /podr/container/pipe/8f92360e5247_agrisource-api-benno/stderr_52c2b2840624466287b0e588521d922b.
+2026-07-15T01:01:01.8686477+00:00 ContainerStatus: Successfully created stderr named pipe at: /podr/container/pipe/8f92360e5247_agrisource-api-benno/stderr_52c2b2840624466287b0e588521d922b.
+2026-07-15T01:01:01.8687799+00:00 ContainerStatus: Opening named pipe /podr/container/pipe/8f92360e5247_agrisource-api-benno/stderr_52c2b2840624466287b0e588521d922b for reading in non-blocking mode.
+2026-07-15T01:01:01.8865533+00:00 ContainerStatus: Successfully opened named pipe: /podr/container/pipe/8f92360e5247_agrisource-api-benno/stderr_52c2b2840624466287b0e588521d922b.
+2026-07-15T01:01:01.8871171+00:00 ContainerStatus: Successfully removed non-blocking flag from /podr/container/pipe/8f92360e5247_agrisource-api-benno/stderr_52c2b2840624466287b0e588521d922b.
+2026-07-15T01:01:01.8880800+00:00 ContainerStatus: Creating container with image: appsvc/dotnetcore:8.0_20260504.4.tuxprod from registry: 10.1.0.4:13209 and fully qualified image name: 10.1.0.4:13209/appsvc/dotnetcore:8.0_20260504.4.tuxprod
+2026-07-15T01:01:02.7397017+00:00 ContainerStatus: Starting container: 8f92360e5247_agrisource-api-benno.
+2026-07-15T01:01:02.8386144+00:00 ContainerStatus: Starting watchers and probes.
+2026-07-15T01:01:02.8560290+00:00 ContainerStatus: Starting metrics collection.
+2026-07-15T01:01:02.8563211+00:00 ContainerStatus: Container is running.
+2026-07-15T01:01:02.8564535+00:00 ContainerStatus: State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:58:39, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Container agrisource-api-benno successfully created and is running., DetailsLevel: INFO
+2026-07-15T01:01:03.0521247+00:00 ContainerStatus: Container start method finished after 4779 ms.
+2026-07-15T01:01:03.0534981+00:00 ContainerStatus: State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:58:39, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Container agrisource-api-benno successfully created and is running., DetailsLevel: INFO
+2026-07-15T01:01:03.0538061+00:00 ContainerStatus: State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:58:39, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-07-15T01:01:03.4387724+00:00 ContainerStream:    _____                               
+2026-07-15T01:01:03.4387971+00:00 ContainerStream:   /  _  \ __________ _________   ____  
+2026-07-15T01:01:03.4387991+00:00 ContainerStream:  /  /_\  \\___   /  |  \_  __ \_/ __ \ 
+2026-07-15T01:01:03.4388009+00:00 ContainerStream: /    |    \/    /|  |  /|  | \/\  ___/ 
+2026-07-15T01:01:03.4388027+00:00 ContainerStream: \____|__  /_____ \____/ |__|    \___  >
+2026-07-15T01:01:03.4388045+00:00 ContainerStream:         \/      \/                  \/ 
+2026-07-15T01:01:03.4388063+00:00 ContainerStream: A P P   S E R V I C E   O N   L I N U X
+2026-07-15T01:01:03.4388079+00:00 ContainerStream: 
+2026-07-15T01:01:03.4388098+00:00 ContainerStream: Documentation       : http://aka.ms/webapp-linux
+2026-07-15T01:01:03.4388116+00:00 ContainerStream: Dotnet quickstart   : https://aka.ms/dotnet-qs
+2026-07-15T01:01:03.4388133+00:00 ContainerStream: ASP .NETCore Version: 8.0.26
+2026-07-15T01:01:03.4388151+00:00 ContainerStream: Instance Name       : lw1sdlwk000COI
+2026-07-15T01:01:03.4388171+00:00 ContainerStream: Instance Id         : e1d4935dd5eb48d81ddd28ae3e649f435a0a2ec61826325f41404c7f5b13aa3b
+2026-07-15T01:01:03.4388212+00:00 ContainerStream: 
+2026-07-15T01:01:03.4388231+00:00 ContainerStream: Note: Any data outside '/home' is not persisted
+2026-07-15T01:01:07.1755711+00:00 ContainerStream: Starting OpenBSD Secure Shell server: sshd.
+2026-07-15T01:01:07.2038611+00:00 ContainerStream: WEBSITES_INCLUDE_CLOUD_CERTS is not set to true.
+2026-07-15T01:01:07.2914785+00:00 ContainerStream: Updating certificates in /etc/ssl/certs...
+2026-07-15T01:01:36.5321458+00:00 ContainerStream: rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_ECC_Root_CA_2022.pem
+2026-07-15T01:01:36.5332504+00:00 ContainerStream: rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_RSA_Root_CA_2022.pem
+2026-07-15T01:01:37.0717446+00:00 ContainerStream: rehash: warning: skipping ca-certificates.crt,it does not contain exactly one certificate or CRL
+2026-07-15T01:01:37.1968106+00:00 ContainerStream: 4 added, 0 removed; done.
+2026-07-15T01:01:37.1982523+00:00 ContainerStream: Running hooks in /etc/ca-certificates/update.d...
+2026-07-15T01:01:37.2356876+00:00 ContainerStream: done.
+2026-07-15T01:01:37.2969061+00:00 ContainerStream: CA certificates copied and updated successfully.
+2026-07-15T01:01:38.4683304+00:00 ContainerStream: Starting periodic command scheduler: cron.
+2026-07-15T01:01:38.5867578+00:00 ContainerStream: Running oryx create-script -appPath /home/site/wwwroot -output /opt/startup/startup.sh -defaultAppFilePath /defaulthome/hostingstart/hostingstart.dll     -bindPort 8080 -bindPort2 '' -userStartupCommand 'chmod 777 ./AgrisourceDashboard.Api ; ./AgrisourceDashboard.Api' 
+2026-07-15T01:01:39.7237575+00:00 ContainerStream: Could not find build manifest file at '/home/site/wwwroot/oryx-manifest.toml'
+2026-07-15T01:01:39.7249768+00:00 ContainerStream: Could not find operation ID in manifest. Generating an operation id...
+2026-07-15T01:01:39.7349455+00:00 ContainerStream: Build Operation ID: a415cd5b-580b-484e-be36-70e381857bef
+2026-07-15T01:01:41.1606392+00:00 ContainerStream: 
+2026-07-15T01:01:41.1708191+00:00 ContainerStream: Agent extension 
+2026-07-15T01:01:41.1708607+00:00 ContainerStream: Before if loop >> DotNet Runtime 
+2026-07-15T01:01:41.2408187+00:00 ContainerStream: DotNet Runtime 8.0Writing output script to '/opt/startup/startup.sh'
+2026-07-15T01:01:41.4098238+00:00 ContainerStream: Running user provided startup command...
+2026-07-15T01:01:41.4671072+00:00 ContainerStream: chmod: changing permissions of './AgrisourceDashboard.Api': Read-only file system
+2026-07-15T01:01:41.5300303+00:00 ContainerStatus: Container has finished running with exit code: 1.
+2026-07-15T01:01:41.5564095+00:00 ContainerStatus: Container is terminating. Grace period: 5 seconds.
+2026-07-15T01:01:41.5673036+00:00 ContainerStatus: Stop and delete container. Retry count = 0
+2026-07-15T01:01:41.5674137+00:00 ContainerStatus: Stopping container: 8f92360e5247_agrisource-api-benno.
+2026-07-15T01:01:41.7770912+00:00 ContainerStatus: Deleting container: 8f92360e5247_agrisource-api-benno. Retry count = 0
+2026-07-15T01:01:42.4024703+00:00 ContainerStatus: Container spec TerminationMessagePolicy  path 
+2026-07-15T01:01:42.4032712+00:00 ContainerStatus: Container is terminated. Total time elapsed: 836 ms.
+2026-07-15T01:01:42.4033576+00:00 ContainerStatus: Site container: agrisource-api-benno terminated during site startup.
+2026-07-15T01:01:42.4034698+00:00 ContainerStatus: State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 00:58:39, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site container: agrisource-api-benno terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-07-15T01:01:42.4138010+00:00 ContainerStatus: Site startup probe failed after 39.3096352 seconds.
+2026-07-15T01:01:42.8688727+00:00 ContainerStatus: State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 01:01:42, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site container: agrisource-api-benno terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-07-15T01:01:42.8904690+00:00 ContainerStatus: Failed to start site. Revert by stopping site.
+2026-07-15T01:01:42.8908803+00:00 ContainerStatus: State: Stopping, Action: StoppingSite, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 01:01:42, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site container: agrisource-api-benno terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-07-15T01:01:42.8911442+00:00 ContainerStatus: State: Stopping, Action: StoppingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 07/15/2026 01:01:42, LastErrorDetails: Container did not start within expected time limit of 1800s. Please inspect your container logs for more details., Details: Site container: agrisource-api-benno terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-07-15T01:01:42.8911597+00:00 ContainerStatus: Site: agrisource-api-benno stopped.

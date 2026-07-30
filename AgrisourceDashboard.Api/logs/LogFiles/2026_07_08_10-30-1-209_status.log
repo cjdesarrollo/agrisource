@@ -1,0 +1,9 @@
+2026-07-08T22:14:43.5564528Z State: Stopping, Action: StoppingSite, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Site started at 07/08/2026 15:25:29 (UTC), DetailsLevel: INFO
+2026-07-08T22:14:43.6302165Z State: Stopping, Action: StoppingSiteContainers, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Site started at 07/08/2026 15:25:29 (UTC), DetailsLevel: INFO
+2026-07-08T22:14:43.6311599Z Container is terminating. Grace period: 5 seconds.
+2026-07-08T22:14:43.7177587Z Stop and delete container. Retry count = 0
+2026-07-08T22:14:43.7209777Z Stopping container: 32bae77033d5_agrisource-api-benno.
+2026-07-08T22:14:48.8291450Z Deleting container: 32bae77033d5_agrisource-api-benno. Retry count = 0
+2026-07-08T22:14:48.9809136Z Container spec TerminationMessagePolicy  path 
+2026-07-08T22:14:48.9811087Z Container is terminated. Total time elapsed: 5348 ms.
+2026-07-08T22:14:48.9930801Z Site: agrisource-api-benno stopped.

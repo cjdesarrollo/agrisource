@@ -1,0 +1,18 @@
+2026-07-15T01:06:06.0105393Z    _____                               
+2026-07-15T01:06:06.0111575Z   /  _  \ __________ _________   ____  
+2026-07-15T01:06:06.0111667Z  /  /_\  \\___   /  |  \_  __ \_/ __ \ 
+2026-07-15T01:06:06.0111698Z /    |    \/    /|  |  /|  | \/\  ___/ 
+2026-07-15T01:06:06.0111733Z \____|__  /_____ \____/ |__|    \___  >
+2026-07-15T01:06:06.0111791Z         \/      \/                  \/ 
+2026-07-15T01:06:06.0111817Z A P P   S E R V I C E   O N   L I N U X
+2026-07-15T01:06:06.0111839Z 
+2026-07-15T01:06:06.0111877Z Documentation       : http://aka.ms/webapp-linux
+2026-07-15T01:06:06.0111906Z Dotnet quickstart   : https://aka.ms/dotnet-qs
+2026-07-15T01:06:06.0111931Z ASP .NETCore Version: 8.0.26
+2026-07-15T01:06:06.0111956Z Instance Name       : lw1sdlwk000COI
+2026-07-15T01:06:06.0112013Z Instance Id         : e1d4935dd5eb48d81ddd28ae3e649f435a0a2ec61826325f41404c7f5b13aa3b
+2026-07-15T01:06:06.0112038Z 
+2026-07-15T01:06:06.0112064Z Note: Any data outside '/home' is not persisted
+2026-07-15T01:06:27.4038253Z Starting OpenBSD Secure Shell server: sshd.
+2026-07-15T01:06:27.5334846Z WEBSITES_INCLUDE_CLOUD_CERTS is not set to true.
+2026-07-15T01:06:27.9182302Z Updating certificates in /etc/ssl/certs...
