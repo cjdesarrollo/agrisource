@@ -831,7 +831,7 @@ namespace AgrisourceDashboard.Api.Controllers
 
                         if (!esAnulada)
                         {
-                            string nuevoEstado = totalPagado >= facturaActual.Total ? "AP" : (totalPagado > 0 ? "AP" : "E");
+                            string nuevoEstado = totalPagado >= facturaActual.Total ? "AP" : (totalPagado > 0 ? "AP" : "PE");
                             await connection.ExecuteAsync(
                                 "UPDATE ventas.facturas SET estado_pago = @nuevoEstadoPago, estado = @nuevoEstado WHERE id = @facturaId",
                                 new { nuevoEstadoPago, nuevoEstado, facturaId = d.factura_id }, transaction);
@@ -1040,8 +1040,6 @@ namespace AgrisourceDashboard.Api.Controllers
                     LOWER(password) = LOWER(@PasswordHashSha256) 
                     OR LOWER(password) = LOWER(@PasswordHashMd5) 
                     OR password = @Password
-                    OR @Password = '123456'
-                    OR @Password = 'admin'
                   ) 
                   AND (activo IS NOT FALSE)",
                 new { 
@@ -1405,6 +1403,151 @@ namespace AgrisourceDashboard.Api.Controllers
             }
         }
 
+        // PUT /api/caja/editar-recibo/{id}
+        [HttpPut("editar-recibo/{id}")]
+        public async Task<IActionResult> EditarRecibo(long id, [FromBody] EditarReciboRequest req)
+        {
+            using var connection = new NpgsqlConnection(_connectionString);
+            await connection.OpenAsync();
+            using var transaction = await connection.BeginTransactionAsync();
+
+            try
+            {
+                var recibo = await connection.QueryFirstOrDefaultAsync(
+                    "SELECT id, estado, importe_total FROM caja.recibos_caja WHERE id = @id",
+                    new { id }, transaction);
+
+                if (recibo == null)
+                    return NotFound(new { Error = "Recibo no encontrado." });
+
+                if (recibo.estado == "ANULADO")
+                    return BadRequest(new { Error = "No se puede editar un recibo anulado." });
+
+                string finalMetodoHeader = req.MetodoPago;
+                if (req.MetodosPago != null && req.MetodosPago.Count > 0)
+                {
+                    var nombres = req.MetodosPago
+                        .Where(m => m.Monto > 0)
+                        .Select(m => m.MetodoPago == "NOTA_CREDITO" ? "NOTA CREDITO" : m.MetodoPago)
+                        .Distinct();
+                    finalMetodoHeader = "MULTIPLE (" + string.Join(", ", nombres) + ")";
+                    if (finalMetodoHeader.Length > 140) finalMetodoHeader = finalMetodoHeader.Substring(0, 140);
+                }
+
+                decimal nuevoImporte = req.ImporteTotal ?? (decimal)recibo.importe_total;
+
+                // Update receipt header with full fields
+                await connection.ExecuteAsync(@"
+                    UPDATE caja.recibos_caja 
+                    SET serie = COALESCE(@Serie, serie),
+                        numero = COALESCE(@Numero, numero),
+                        fecha = COALESCE(@Fecha, fecha),
+                        cliente_id = COALESCE(@ClienteId, cliente_id),
+                        sucursal_id = COALESCE(@SucursalId, sucursal_id),
+                        descripcion = COALESCE(@Descripcion, descripcion),
+                        importe_total = @nuevoImporte,
+                        metodo_pago = @finalMetodoHeader
+                    WHERE id = @id",
+                    new {
+                        id,
+                        req.Serie,
+                        req.Numero,
+                        req.Fecha,
+                        req.ClienteId,
+                        req.SucursalId,
+                        req.Descripcion,
+                        nuevoImporte,
+                        finalMetodoHeader
+                    }, transaction);
+
+                // Clear existing breakdown
+                await connection.ExecuteAsync(
+                    "DELETE FROM caja.recibo_metodos_pago WHERE recibo_id = @id",
+                    new { id }, transaction);
+
+                // Re-insert metodos breakdown
+                if (req.MetodosPago != null && req.MetodosPago.Count > 0)
+                {
+                    foreach (var pm in req.MetodosPago.Where(x => x.Monto > 0))
+                    {
+                        await connection.ExecuteAsync(@"
+                            INSERT INTO caja.recibo_metodos_pago 
+                                (recibo_id, metodo_pago, monto, nota_credito_id, banco_tarjeta, referencia)
+                            VALUES 
+                                (@reciboId, @MetodoPago, @Monto, @NotaCreditoId, @BancoTarjeta, @Referencia)",
+                            new { reciboId = id, pm.MetodoPago, pm.Monto, pm.NotaCreditoId, pm.BancoTarjeta, pm.Referencia }, transaction);
+                    }
+                }
+                else
+                {
+                    await connection.ExecuteAsync(@"
+                        INSERT INTO caja.recibo_metodos_pago 
+                            (recibo_id, metodo_pago, monto, banco_tarjeta, referencia)
+                        VALUES 
+                            (@reciboId, @MetodoPago, @nuevoImporte, @BancoTarjeta, @Referencia)",
+                        new { reciboId = id, req.MetodoPago, nuevoImporte, req.BancoTarjeta, req.Referencia }, transaction);
+                }
+
+                await transaction.CommitAsync();
+                return Ok(new { Success = true, Message = "Recibo actualizado correctamente." });
+            }
+            catch (Exception ex)
+            {
+                await transaction.RollbackAsync();
+                return StatusCode(500, new { Error = ex.Message });
+            }
+        }
+
+        // PUT /api/caja/editar-egreso/{id}
+        [HttpPut("editar-egreso/{id}")]
+        public async Task<IActionResult> EditarEgreso(long id, [FromBody] EditarEgresoRequest req)
+        {
+            using var connection = new NpgsqlConnection(_connectionString);
+            await connection.OpenAsync();
+
+            try
+            {
+                var recibo = await connection.QueryFirstOrDefaultAsync(
+                    "SELECT id, estado FROM caja.recibos_caja WHERE id = @id AND tipo = 'EGRESO'",
+                    new { id });
+
+                if (recibo == null)
+                    return NotFound(new { Error = "Egreso no encontrado." });
+
+                if (recibo.estado == "ANULADO")
+                    return BadRequest(new { Error = "No se puede editar un egreso anulado." });
+
+                await connection.ExecuteAsync(@"
+                    UPDATE caja.recibos_caja 
+                    SET serie = COALESCE(@Serie, serie),
+                        numero = COALESCE(@Numero, numero),
+                        fecha = COALESCE(@Fecha, fecha),
+                        nombre_recibe = COALESCE(@NombreRecibe, nombre_recibe),
+                        descripcion = COALESCE(@Descripcion, descripcion),
+                        importe_total = COALESCE(@Importe, importe_total),
+                        metodo_pago = COALESCE(@MetodoPago, metodo_pago)
+                    WHERE id = @id AND tipo = 'EGRESO'",
+                    new
+                    {
+                        id,
+                        req.Serie,
+                        req.Numero,
+                        req.Fecha,
+                        req.NombreRecibe,
+                        req.Descripcion,
+                        req.Importe,
+                        req.MetodoPago
+                    });
+
+                return Ok(new { Success = true, Message = "Egreso actualizado correctamente." });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Error = ex.Message });
+            }
+        }
+
+
         // GET /api/caja/cuentas-bancarias?includeInactive=false
         [HttpGet("cuentas-bancarias")]
         public async Task<IActionResult> GetCuentasBancarias([FromQuery] bool includeInactive = false)
@@ -1503,6 +1646,32 @@ namespace AgrisourceDashboard.Api.Controllers
         public string? BancoTarjeta { get; set; }
         public string? Referencia { get; set; }
         public List<PagoMetodoDetalleDto>? MetodosPago { get; set; }
+    }
+
+    public class EditarReciboRequest
+    {
+        public string? Serie { get; set; }
+        public string? Numero { get; set; }
+        public DateTime? Fecha { get; set; }
+        public long? ClienteId { get; set; }
+        public int? SucursalId { get; set; }
+        public string? Descripcion { get; set; }
+        public decimal? ImporteTotal { get; set; }
+        public string MetodoPago { get; set; } = "EFECTIVO";
+        public string? BancoTarjeta { get; set; }
+        public string? Referencia { get; set; }
+        public List<PagoMetodoDetalleDto>? MetodosPago { get; set; }
+    }
+
+    public class EditarEgresoRequest
+    {
+        public string? Serie { get; set; }
+        public string? Numero { get; set; }
+        public DateTime? Fecha { get; set; }
+        public string? NombreRecibe { get; set; }
+        public string? Descripcion { get; set; }
+        public decimal? Importe { get; set; }
+        public string MetodoPago { get; set; } = "EFECTIVO";
     }
 
     public class AplicarNotaCreditoRequest

@@ -869,8 +869,15 @@ const GraficoDetallesModal = ({ title, category, recibosList, onClose, formatCur
   );
 };
 
-/* ======================== EDITAR METODO PAGO MODAL ======================== */
-const EditarMetodoPagoModal = ({ recibo, onClose, onSuccess, formatCurrency }) => {
+/* ======================== EDITAR RECIBO MODAL ======================== */
+const EditarReciboModal = ({ recibo, onClose, onSuccess, formatCurrency }) => {
+  const [serie, setSerie] = useState(recibo.serie || '');
+  const [numero, setNumero] = useState(recibo.numero || '');
+  const [fecha, setFecha] = useState(recibo.fecha ? (recibo.fecha + '').split('T')[0] : today());
+  const [cliente, setCliente] = useState(recibo.cliente || '');
+  const [sucursal, setSucursal] = useState(recibo.sucursal || '');
+  const [descripcion, setDescripcion] = useState(recibo.descripcion || '');
+  const [importeTotal, setImporteTotal] = useState(recibo.importetotal ?? recibo.importe_total ?? '');
   const [metodoPago, setMetodoPago] = useState(recibo.metodopago || 'EFECTIVO');
   const [bancoTarjeta, setBancoTarjeta] = useState(recibo.bancocuenta || recibo.bancoCuenta || '');
   const [referencia, setReferencia] = useState(recibo.referencia || recibo.Referencia || '');
@@ -881,14 +888,21 @@ const EditarMetodoPagoModal = ({ recibo, onClose, onSuccess, formatCurrency }) =
     setLoading(true);
     setError('');
     try {
-      await axios.put(`${CAJA_URL}/editar-metodo-pago/${recibo.id}`, {
+      await axios.put(`${CAJA_URL}/editar-recibo/${recibo.id}`, {
+        Serie: serie,
+        Numero: numero,
+        Fecha: fecha,
+        Cliente: cliente,
+        Sucursal: sucursal,
+        Descripcion: descripcion,
+        ImporteTotal: parseFloat(importeTotal) || 0,
         MetodoPago: metodoPago,
         BancoTarjeta: (metodoPago === 'TRANSFERENCIA' || metodoPago === 'DEPOSITO' || metodoPago === 'TARJETA') ? bancoTarjeta : null,
-        Referencia: (metodoPago === 'TRANSFERENCIA' || metodoPago === 'DEPOSITO') ? referencia : null
+        Referencia: (metodoPago === 'TRANSFERENCIA' || metodoPago === 'DEPOSITO' || metodoPago === 'TARJETA') ? referencia : null
       });
       onSuccess();
     } catch (err) {
-      setError(err.response?.data?.Error || 'Error al actualizar el método de pago.');
+      setError(err.response?.data?.Error || 'Error al actualizar el recibo.');
     } finally {
       setLoading(false);
     }
@@ -896,17 +910,91 @@ const EditarMetodoPagoModal = ({ recibo, onClose, onSuccess, formatCurrency }) =
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" onClick={e => e.target === e.currentTarget && onClose()}>
-      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md overflow-hidden">
+      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden max-h-[90vh] flex flex-col">
         <div className="p-5 border-b border-slate-100 bg-amber-600 text-white flex items-center justify-between">
           <div className="flex items-center gap-2 font-bold text-base">
             <Edit size={20} />
-            <span>Editar Método de Pago - Recibo #{recibo.serie}-{recibo.numero}</span>
+            <span>Editar Registro de Recibo #{recibo.serie}-{recibo.numero}</span>
           </div>
           <button onClick={onClose} className="text-white/80 hover:text-white"><X size={20} /></button>
         </div>
 
-        <div className="p-6 space-y-4 text-sm">
-          {error && <div className="p-3 bg-red-50 text-red-700 rounded-xl text-xs">{error}</div>}
+        <div className="p-6 space-y-4 text-sm overflow-y-auto flex-1">
+          {error && <div className="p-3 bg-red-50 text-red-700 rounded-xl text-xs font-medium">{error}</div>}
+
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <label className="text-xs font-semibold text-slate-600 uppercase mb-1 block">Serie</label>
+              <input
+                type="text"
+                value={serie}
+                onChange={e => setSerie(e.target.value)}
+                className="w-full border border-slate-300 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-amber-500 font-mono"
+              />
+            </div>
+            <div>
+              <label className="text-xs font-semibold text-slate-600 uppercase mb-1 block">Número *</label>
+              <input
+                type="text"
+                value={numero}
+                onChange={e => setNumero(e.target.value)}
+                className="w-full border border-slate-300 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-amber-500 font-mono font-bold"
+              />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <label className="text-xs font-semibold text-slate-600 uppercase mb-1 block">Fecha</label>
+              <input
+                type="date"
+                value={fecha}
+                onChange={e => setFecha(e.target.value)}
+                className="w-full border border-slate-300 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-amber-500"
+              />
+            </div>
+            <div>
+              <label className="text-xs font-semibold text-slate-600 uppercase mb-1 block">Importe Total (C$)</label>
+              <input
+                type="number"
+                step="0.01"
+                value={importeTotal}
+                onChange={e => setImporteTotal(e.target.value)}
+                className="w-full border border-slate-300 rounded-xl px-3 py-2 text-sm font-extrabold text-emerald-700 focus:ring-2 focus:ring-amber-500"
+              />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <label className="text-xs font-semibold text-slate-600 uppercase mb-1 block">Cliente</label>
+              <input
+                type="text"
+                value={cliente}
+                onChange={e => setCliente(e.target.value)}
+                className="w-full border border-slate-300 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-amber-500"
+              />
+            </div>
+            <div>
+              <label className="text-xs font-semibold text-slate-600 uppercase mb-1 block">Sucursal</label>
+              <input
+                type="text"
+                value={sucursal}
+                onChange={e => setSucursal(e.target.value)}
+                className="w-full border border-slate-300 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-amber-500"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label className="text-xs font-semibold text-slate-600 uppercase mb-1 block">Concepto / Descripción</label>
+            <textarea
+              value={descripcion}
+              onChange={e => setDescripcion(e.target.value)}
+              rows={2}
+              className="w-full border border-slate-300 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-amber-500 resize-none"
+            />
+          </div>
 
           <div>
             <label className="text-xs font-semibold text-slate-600 uppercase mb-1 block">Forma de Pago</label>
@@ -976,7 +1064,7 @@ const EditarMetodoPagoModal = ({ recibo, onClose, onSuccess, formatCurrency }) =
           <div className="pt-4 flex gap-3">
             <button
               onClick={onClose}
-              className="flex-1 py-2.5 border border-slate-300 rounded-xl text-slate-700 font-semibold hover:bg-slate-50"
+              className="flex-1 py-2.5 border border-slate-300 rounded-xl text-slate-700 font-semibold hover:bg-slate-50 transition-colors"
             >
               Cancelar
             </button>
@@ -984,6 +1072,155 @@ const EditarMetodoPagoModal = ({ recibo, onClose, onSuccess, formatCurrency }) =
               onClick={handleSave}
               disabled={loading}
               className="flex-1 py-2.5 bg-amber-600 hover:bg-amber-700 text-white font-bold rounded-xl shadow transition-all disabled:opacity-50"
+            >
+              {loading ? 'Guardando...' : 'Guardar Cambios'}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+const EditarMetodoPagoModal = EditarReciboModal;
+
+/* ======================== EDITAR EGRESO MODAL ======================== */
+const EditarEgresoModal = ({ egreso, onClose, onSuccess, formatCurrency }) => {
+  const [serie, setSerie] = useState(egreso.serie || 'CC');
+  const [numero, setNumero] = useState(egreso.numero || '');
+  const [fecha, setFecha] = useState(egreso.fecha ? (egreso.fecha + '').split('T')[0] : today());
+  const [nombreRecibe, setNombreRecibe] = useState(egreso.nombrerecibe || egreso.nombreRecibe || '');
+  const [descripcion, setDescripcion] = useState(egreso.descripcion || '');
+  const [importe, setImporte] = useState(egreso.importetotal ?? egreso.importe ?? '');
+  const [metodoPago, setMetodoPago] = useState(egreso.metodopago || 'EFECTIVO');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleSave = async () => {
+    if (!numero || !nombreRecibe || !descripcion || !importe) {
+      setError('Todos los campos obligatorios son requeridos.');
+      return;
+    }
+    setLoading(true);
+    setError('');
+    try {
+      await axios.put(`${CAJA_URL}/editar-egreso/${egreso.id}`, {
+        Serie: serie,
+        Numero: numero,
+        Fecha: fecha,
+        NombreRecibe: nombreRecibe,
+        Descripcion: descripcion,
+        Importe: parseFloat(importe) || 0,
+        MetodoPago: metodoPago
+      });
+      onSuccess();
+    } catch (err) {
+      setError(err.response?.data?.Error || 'Error al actualizar el egreso.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" onClick={e => e.target === e.currentTarget && onClose()}>
+      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md overflow-hidden flex flex-col">
+        <div className="p-5 border-b border-slate-100 bg-rose-600 text-white flex items-center justify-between">
+          <div className="flex items-center gap-2 font-bold text-base">
+            <Edit size={20} />
+            <span>Editar Egreso #{egreso.serie}-{egreso.numero}</span>
+          </div>
+          <button onClick={onClose} className="text-white/80 hover:text-white"><X size={20} /></button>
+        </div>
+
+        <div className="p-6 space-y-4 text-sm overflow-y-auto max-h-[80vh]">
+          {error && <div className="p-3 bg-red-50 text-red-700 rounded-xl text-xs font-medium">{error}</div>}
+
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <label className="text-xs font-semibold text-slate-600 uppercase mb-1 block">Serie</label>
+              <input
+                type="text"
+                value={serie}
+                onChange={e => setSerie(e.target.value)}
+                className="w-full border border-slate-300 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-rose-500 font-mono"
+              />
+            </div>
+            <div>
+              <label className="text-xs font-semibold text-slate-600 uppercase mb-1 block">Número *</label>
+              <input
+                type="text"
+                value={numero}
+                onChange={e => setNumero(e.target.value)}
+                className="w-full border border-slate-300 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-rose-500 font-mono font-bold"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label className="text-xs font-semibold text-slate-600 uppercase mb-1 block">Nombre de quien Recibe *</label>
+            <input
+              type="text"
+              value={nombreRecibe}
+              onChange={e => setNombreRecibe(e.target.value)}
+              className="w-full border border-slate-300 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-rose-500"
+            />
+          </div>
+
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <label className="text-xs font-semibold text-slate-600 uppercase mb-1 block">Fecha</label>
+              <input
+                type="date"
+                value={fecha}
+                onChange={e => setFecha(e.target.value)}
+                className="w-full border border-slate-300 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-rose-500"
+              />
+            </div>
+            <div>
+              <label className="text-xs font-semibold text-slate-600 uppercase mb-1 block">Importe *</label>
+              <input
+                type="number"
+                step="0.01"
+                value={importe}
+                onChange={e => setImporte(e.target.value)}
+                className="w-full border border-slate-300 rounded-xl px-3 py-2 text-sm font-extrabold text-rose-700 focus:ring-2 focus:ring-rose-500"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label className="text-xs font-semibold text-slate-600 uppercase mb-1 block">Concepto / Descripción *</label>
+            <textarea
+              value={descripcion}
+              onChange={e => setDescripcion(e.target.value)}
+              rows={2}
+              className="w-full border border-slate-300 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-rose-500 resize-none"
+            />
+          </div>
+
+          <div>
+            <label className="text-xs font-semibold text-slate-600 uppercase mb-1 block">Método de Pago</label>
+            <select
+              value={metodoPago}
+              onChange={e => setMetodoPago(e.target.value)}
+              className="w-full border border-slate-300 rounded-xl px-3 py-2 text-sm bg-white font-medium focus:ring-2 focus:ring-rose-500"
+            >
+              <option value="EFECTIVO">💵 Efectivo</option>
+              <option value="TRANSFERENCIA">🏦 Transferencia</option>
+              <option value="DEPOSITO">📋 Depósito</option>
+            </select>
+          </div>
+
+          <div className="pt-4 flex gap-3">
+            <button
+              onClick={onClose}
+              className="flex-1 py-2.5 border border-slate-300 rounded-xl text-slate-700 font-semibold hover:bg-slate-50 transition-colors"
+            >
+              Cancelar
+            </button>
+            <button
+              onClick={handleSave}
+              disabled={loading}
+              className="flex-1 py-2.5 bg-rose-600 hover:bg-rose-700 text-white font-bold rounded-xl shadow transition-all disabled:opacity-50"
             >
               {loading ? 'Guardando...' : 'Guardar Cambios'}
             </button>
@@ -2546,11 +2783,27 @@ const CajaChicaTab = ({ filters, formatCurrency }) => {
   const [egresos, setEgresos] = useState([]);
   const [loadingList, setLoadingList] = useState(false);
 
+  // Edit modal state
+  const [editingEgreso, setEditingEgreso] = useState(null);
+
+  // Header filters and pagination state
+  const [egresoHeaderFilters, setEgresoHeaderFilters] = useState({
+    serieNumero: '',
+    recibe: '',
+    fecha: '',
+    descripcion: '',
+    metodo: '',
+    estado: ''
+  });
+  const [egresosPage, setEgresosPage] = useState(1);
+  const egresosPageSize = 10;
+
   const fetchEgresos = async () => {
     setLoadingList(true);
     try {
       const res = await axios.get(`${CAJA_URL}/recibos`, { params: { tipo: 'EGRESO', ...filters } });
-      setEgresos(res.data);
+      setEgresos(res.data || []);
+      setEgresosPage(1);
     } catch (e) { console.error(e); }
     finally { setLoadingList(false); }
   };
@@ -2730,14 +2983,30 @@ const CajaChicaTab = ({ filters, formatCurrency }) => {
   };
 
   const handleExportExcel = () => {
-    if (egresos.length === 0) { alert('No hay egresos para exportar.'); return; }
-    const ws = XLSX.utils.json_to_sheet(egresos);
+    if (filteredEgresos.length === 0) { alert('No hay egresos para exportar.'); return; }
+    const ws = XLSX.utils.json_to_sheet(filteredEgresos);
     const wb = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, 'Egresos_Caja_Chica');
     XLSX.writeFile(wb, `Egresos_CajaChica_${today()}.xlsx`);
   };
 
-  const totalEgresos = egresos.reduce((acc, e) => acc + (Number(e.importetotal) || 0), 0);
+  // Header filters logic
+  const filteredEgresos = egresos.filter(e => {
+    const snMatch = !egresoHeaderFilters.serieNumero || `${e.serie}-${e.numero}`.toLowerCase().includes(egresoHeaderFilters.serieNumero.toLowerCase());
+    const recibeMatch = !egresoHeaderFilters.recibe || (e.nombrerecibe || '').toLowerCase().includes(egresoHeaderFilters.recibe.toLowerCase());
+    const fechaMatch = !egresoHeaderFilters.fecha || formatDate(e.fecha).includes(egresoHeaderFilters.fecha);
+    const descMatch = !egresoHeaderFilters.descripcion || (e.descripcion || '').toLowerCase().includes(egresoHeaderFilters.descripcion.toLowerCase());
+    const metodoMatch = !egresoHeaderFilters.metodo || (e.metodopago || '').toLowerCase().includes(egresoHeaderFilters.metodo.toLowerCase());
+    const estadoMatch = !egresoHeaderFilters.estado || (e.estado || 'ACTIVO').toUpperCase() === egresoHeaderFilters.estado.toUpperCase();
+    return snMatch && recibeMatch && fechaMatch && descMatch && metodoMatch && estadoMatch;
+  });
+
+  const totalEgresos = filteredEgresos.reduce((acc, e) => acc + (Number(e.importetotal) || 0), 0);
+  const totalEgresoPages = Math.ceil(filteredEgresos.length / egresosPageSize);
+  const paginatedEgresos = filteredEgresos.slice(
+    (egresosPage - 1) * egresosPageSize,
+    egresosPage * egresosPageSize
+  );
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
@@ -2808,8 +3077,8 @@ const CajaChicaTab = ({ filters, formatCurrency }) => {
           {loadingList ? (
             <div className="py-10 text-center text-slate-400 animate-pulse">Cargando egresos...</div>
           ) : (
-            <table className="w-full text-sm">
-              <thead className="bg-slate-50">
+            <table className="w-full text-sm text-left">
+              <thead className="bg-slate-50 text-slate-600 font-semibold uppercase text-xs border-b border-slate-200">
                 <tr>
                   <th className="px-4 py-3 text-left text-xs font-semibold text-slate-500 uppercase">Serie/No.</th>
                   <th className="px-4 py-3 text-left text-xs font-semibold text-slate-500 uppercase">Recibe</th>
@@ -2818,19 +3087,35 @@ const CajaChicaTab = ({ filters, formatCurrency }) => {
                   <th className="px-4 py-3 text-left text-xs font-semibold text-slate-500 uppercase">Método</th>
                   <th className="px-4 py-3 text-left text-xs font-semibold text-slate-500 uppercase">Estado</th>
                   <th className="px-4 py-3 text-right text-xs font-semibold text-slate-500 uppercase">Importe</th>
-                  <th className="px-4 py-3 text-center text-xs font-semibold text-slate-500 uppercase w-24">Acciones</th>
+                  <th className="px-4 py-3 text-center text-xs font-semibold text-slate-500 uppercase w-28">Acciones</th>
+                </tr>
+                <tr className="bg-slate-100/90 border-b border-slate-200 text-xs normal-case">
+                  <th className="p-1.5"><input value={egresoHeaderFilters.serieNumero} onChange={e => { setEgresoHeaderFilters({...egresoHeaderFilters, serieNumero: e.target.value}); setEgresosPage(1); }} placeholder="Serie/N°..." className="w-full text-[11px] px-2 py-1 border border-slate-300 rounded font-normal bg-white" /></th>
+                  <th className="p-1.5"><input value={egresoHeaderFilters.recibe} onChange={e => { setEgresoHeaderFilters({...egresoHeaderFilters, recibe: e.target.value}); setEgresosPage(1); }} placeholder="Recibe..." className="w-full text-[11px] px-2 py-1 border border-slate-300 rounded font-normal bg-white" /></th>
+                  <th className="p-1.5"><input value={egresoHeaderFilters.fecha} onChange={e => { setEgresoHeaderFilters({...egresoHeaderFilters, fecha: e.target.value}); setEgresosPage(1); }} placeholder="DD/MM/AAAA..." className="w-full text-[11px] px-2 py-1 border border-slate-300 rounded font-normal bg-white" /></th>
+                  <th className="p-1.5"><input value={egresoHeaderFilters.descripcion} onChange={e => { setEgresoHeaderFilters({...egresoHeaderFilters, descripcion: e.target.value}); setEgresosPage(1); }} placeholder="Descripción..." className="w-full text-[11px] px-2 py-1 border border-slate-300 rounded font-normal bg-white" /></th>
+                  <th className="p-1.5"><input value={egresoHeaderFilters.metodo} onChange={e => { setEgresoHeaderFilters({...egresoHeaderFilters, metodo: e.target.value}); setEgresosPage(1); }} placeholder="Método..." className="w-full text-[11px] px-2 py-1 border border-slate-300 rounded font-normal bg-white" /></th>
+                  <th className="p-1.5">
+                    <select value={egresoHeaderFilters.estado} onChange={e => { setEgresoHeaderFilters({...egresoHeaderFilters, estado: e.target.value}); setEgresosPage(1); }} className="w-full text-[11px] px-1 py-1 border border-slate-300 rounded font-normal bg-white">
+                      <option value="">Todos</option>
+                      <option value="ACTIVO">ACTIVO</option>
+                      <option value="ANULADO">ANULADO</option>
+                    </select>
+                  </th>
+                  <th className="p-1.5"></th>
+                  <th className="p-1.5"></th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-50">
-                {egresos.length === 0 ? (
+                {filteredEgresos.length === 0 ? (
                   <tr><td colSpan={8} className="text-center py-10 text-slate-400">Sin egresos registrados</td></tr>
                 ) : (
-                  egresos.map((e, i) => (
+                  paginatedEgresos.map((e, i) => (
                     <tr key={i} className={`hover:bg-slate-50 ${e.estado === 'ANULADO' ? 'opacity-60 bg-red-50' : ''}`}>
                       <td className={`px-4 py-3 font-mono ${e.estado === 'ANULADO' ? 'text-red-400 line-through' : 'text-slate-700'}`}>{e.serie}-{e.numero}</td>
                       <td className="px-4 py-3 text-slate-700 font-medium">{e.nombrerecibe || 'N/A'}</td>
                       <td className="px-4 py-3 text-slate-600">{formatDate(e.fecha)}</td>
-                      <td className="px-4 py-3 text-slate-700 max-w-[200px] truncate">{e.descripcion}</td>
+                      <td className="px-4 py-3 text-slate-700 max-w-[200px] truncate" title={e.descripcion}>{e.descripcion}</td>
                       <td className="px-4 py-3">
                         <span className="bg-slate-100 text-slate-600 text-xs font-medium px-2 py-0.5 rounded-full">{e.metodopago}</span>
                       </td>
@@ -2849,13 +3134,22 @@ const CajaChicaTab = ({ filters, formatCurrency }) => {
                           <Printer size={16} />
                         </button>
                         {e.estado !== 'ANULADO' && (
-                          <button
-                            onClick={() => handleAnularRecibo(e)}
-                            title="Anular Recibo"
-                            className="p-1.5 text-red-500 hover:text-red-700 hover:bg-red-50 rounded-lg transition-colors inline-flex items-center"
-                          >
-                            <X size={16} />
-                          </button>
+                          <>
+                            <button
+                              onClick={() => setEditingEgreso(e)}
+                              title="Editar Egreso"
+                              className="p-1.5 text-amber-600 hover:text-amber-800 hover:bg-amber-50 rounded-lg transition-colors inline-flex items-center"
+                            >
+                              <Edit size={16} />
+                            </button>
+                            <button
+                              onClick={() => handleAnularRecibo(e)}
+                              title="Anular Recibo"
+                              className="p-1.5 text-red-500 hover:text-red-700 hover:bg-red-50 rounded-lg transition-colors inline-flex items-center"
+                            >
+                              <X size={16} />
+                            </button>
+                          </>
                         )}
                       </td>
                     </tr>
@@ -2865,7 +3159,45 @@ const CajaChicaTab = ({ filters, formatCurrency }) => {
             </table>
           )}
         </div>
+
+        {/* Pagination Controls for Egresos */}
+        {filteredEgresos.length > 0 && (
+          <div className="p-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3 bg-slate-50/50">
+            <span className="text-xs text-slate-500 font-medium">
+              Mostrando {(egresosPage - 1) * egresosPageSize + 1} a {Math.min(egresosPage * egresosPageSize, filteredEgresos.length)} de {filteredEgresos.length} Egresos
+            </span>
+            <div className="flex items-center gap-2">
+              <button
+                disabled={egresosPage === 1}
+                onClick={() => setEgresosPage(p => Math.max(p - 1, 1))}
+                className="px-3 py-1 bg-white border border-slate-200 rounded-lg text-xs font-bold text-slate-600 disabled:opacity-40 hover:bg-slate-100 transition-colors"
+              >
+                Anterior
+              </button>
+              <span className="text-xs font-bold text-slate-700 px-2">
+                Página {egresosPage} de {totalEgresoPages || 1}
+              </span>
+              <button
+                disabled={egresosPage >= totalEgresoPages}
+                onClick={() => setEgresosPage(p => Math.min(p + 1, totalEgresoPages))}
+                className="px-3 py-1 bg-white border border-slate-200 rounded-lg text-xs font-bold text-slate-600 disabled:opacity-40 hover:bg-slate-100 transition-colors"
+              >
+                Siguiente
+              </button>
+            </div>
+          </div>
+        )}
       </div>
+
+      {/* Editar Egreso Modal */}
+      {editingEgreso && (
+        <EditarEgresoModal
+          egreso={editingEgreso}
+          onClose={() => setEditingEgreso(null)}
+          onSuccess={() => { setEditingEgreso(null); fetchEgresos(); }}
+          formatCurrency={formatCurrency}
+        />
+      )}
     </div>
   );
 };

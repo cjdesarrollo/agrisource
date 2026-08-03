@@ -4,7 +4,7 @@ import {
   BarChart, Bar, Line, ComposedChart, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,
   PieChart, Pie, Cell 
 } from 'recharts';
-import { TrendingUp, Percent, Users, FileWarning, CreditCard, Banknote, Download, Search, Briefcase, FileText, Printer, Calendar, Building2, Layers, Clock, CheckCircle2, FileSpreadsheet, Tag, DollarSign, RotateCcw, Undo2, CheckCircle, RefreshCw, AlertTriangle, AlertCircle, Eye, Plus } from 'lucide-react';
+import { TrendingUp, Percent, Users, FileWarning, CreditCard, Banknote, Download, Search, Briefcase, FileText, Printer, Calendar, Building2, Layers, Clock, CheckCircle2, FileSpreadsheet, Tag, DollarSign, RotateCcw, Undo2, CheckCircle, RefreshCw, AlertTriangle, AlertCircle, Eye, Plus, Wrench, Package } from 'lucide-react';
 import * as XLSX from 'xlsx';
 import logoImg from '../assets/logo.jpg';
 
@@ -282,6 +282,8 @@ const Ventas = ({ filters }) => {
   const [cxcDetalle, setCxcDetalle] = useState([]);
   const [loadingCxc, setLoadingCxc] = useState(true);
   const [cxcFilters, setCxcFilters] = useState({ cliente: '', sucursalId: '', vendedorId: '' });
+  const [cxcHeaderFiltros, setCxcHeaderFiltros] = useState({ factura: '', cliente: '', sucursal: '', plazo: '', transcurridos: '', vencimiento: '', devolucion: '' });
+  const [ventasGrupos, setVentasGrupos] = useState([]);
   
   // Client statement selector
   const [clientesList, setClientesList] = useState([]);
@@ -488,13 +490,14 @@ const Ventas = ({ filters }) => {
   const fetchResumen = async () => {
     setLoadingResumen(true);
     try {
-      const [vComp, dSuc, vendRes, resuRes, factRes, detRes] = await Promise.all([
+      const [vComp, dSuc, vendRes, resuRes, factRes, detRes, grupoRes] = await Promise.all([
         axios.get(`${API_BASE_URL}/ventas-sucursal-comparativo`, { params: filters }),
         axios.get(`${API_BASE_URL}/descuentos-sucursal`, { params: filters }),
         axios.get(`${API_BASE_URL}/vendedores`, { params: filters }),
         axios.get(`${API_BASE_URL}/ventas-resumen`, { params: filters }),
         axios.get(`${API_BASE_URL}/facturas-exportar`, { params: filters }),
-        axios.get(`${API_BASE_URL}/ventas-resumen-detallado`, { params: filters })
+        axios.get(`${API_BASE_URL}/ventas-resumen-detallado`, { params: filters }),
+        axios.get(`${API_BASE_URL}/ventas-por-grupo-categoria`, { params: filters })
       ]);
       setVentasComparativo(vComp.data);
       setDescuentosComparativo(dSuc.data);
@@ -502,6 +505,7 @@ const Ventas = ({ filters }) => {
       setVentasResumen(resuRes.data);
       setFacturas(factRes.data);
       setVentasDetalleResumen(detRes.data);
+      setVentasGrupos(grupoRes.data || []);
     } catch (error) {
       console.error("Error fetching resumen data:", error);
     } finally {
@@ -622,6 +626,32 @@ const Ventas = ({ filters }) => {
     const workbook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(workbook, worksheet, "CxC_Pendientes");
     XLSX.writeFile(workbook, `CxC_${new Date().toISOString().split('T')[0]}.xlsx`);
+  };
+
+  const handleExportarCxCDetalleExcel = (dataToExport) => {
+    const list = dataToExport && dataToExport.length > 0 ? dataToExport : cxcDetalle;
+    if (!list || list.length === 0) {
+      alert("No hay facturas pendientes en la lista para exportar.");
+      return;
+    }
+
+    const rows = list.map(d => ({
+      'Fecha Factura': formatDate(d.fecha),
+      'N° Factura': d.numerofactura || 'N/A',
+      'Cliente': d.cliente || 'N/A',
+      'Sucursal': d.sucursal || 'N/A',
+      'Vendedor': d.vendedor || 'N/A',
+      'Plazo (Días)': `${d.diascredito || 0} días`,
+      'Días Transcurridos': `${d.diastranscurridos || 0} días`,
+      'Fecha Vencimiento': formatDate(d.fechavencimiento),
+      'Devolución Aplicada': d.devolucionaplicada || 'Ninguna',
+      'Deuda Pendiente (C$)': Number(d.deuda || 0)
+    }));
+
+    const worksheet = XLSX.utils.json_to_sheet(rows);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Detalle_Facturas_CxC");
+    XLSX.writeFile(workbook, `Detalle_Facturas_CxC_${new Date().toISOString().split('T')[0]}.xlsx`);
   };
 
   const handleExportarClienteStatement = () => {
@@ -932,6 +962,131 @@ const Ventas = ({ filters }) => {
               Ver detalle →
             </p>
           </button>
+        </div>
+
+        {/* Ventas por Grupo de Categorías (Maquinaria vs Repuestos - usando group_code) */}
+        <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200/80 mb-8">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
+            <div>
+              <h2 className="text-lg font-bold text-slate-800 flex items-center gap-2">
+                <Layers className="w-5 h-5 text-blue-600" /> Ventas por Grupo de Categorías (Group Code)
+              </h2>
+              <p className="text-xs text-slate-500 mt-0.5">
+                Desglose y totalizado de subtotales agrupados por <strong className="text-slate-700">group_code</strong> entre <strong className="text-blue-700">Grupo 1 (Maquinaria)</strong> y <strong className="text-emerald-700">Grupo 2 (Repuestos)</strong>
+              </p>
+            </div>
+            <div className="flex items-center gap-2 text-xs font-semibold text-slate-500 bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-200">
+              <span>Group Codes Maquinaria: <strong className="text-blue-600 font-mono">COM-01, COM-02, CON-01, COS-01, COS-02, MAQ-01, MAG-01</strong></span>
+            </div>
+          </div>
+
+          {(() => {
+            const maqData = ventasGrupos.find(g => (g.grupo || '').toLowerCase() === 'maquinaria') || { totalsubtotal: 0, totalventa: 0, cantidadfacturas: 0 };
+            const repData = ventasGrupos.find(g => (g.grupo || '').toLowerCase() === 'repuestos') || { totalsubtotal: 0, totalventa: 0, cantidadfacturas: 0 };
+
+            const totalSubtotalSum = Number(maqData.totalsubtotal || 0) + Number(repData.totalsubtotal || 0);
+            const pctMaq = totalSubtotalSum > 0 ? ((Number(maqData.totalsubtotal || 0) / totalSubtotalSum) * 100).toFixed(1) : '0.0';
+            const pctRep = totalSubtotalSum > 0 ? ((Number(repData.totalsubtotal || 0) / totalSubtotalSum) * 100).toFixed(1) : '0.0';
+
+            const chartData = [
+              { name: 'Grupo 1: Maquinaria', value: Number(maqData.totalsubtotal || 0), facturas: maqData.cantidadfacturas || 0, color: '#2563EB' },
+              { name: 'Grupo 2: Repuestos', value: Number(repData.totalsubtotal || 0), facturas: repData.cantidadfacturas || 0, color: '#059669' }
+            ];
+
+            return (
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-center">
+                {/* Cards Column */}
+                <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  {/* Grupo 1: Maquinaria Card */}
+                  <div className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-blue-50/40 p-5 rounded-2xl border border-blue-200 shadow-sm hover:shadow-md transition-all">
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="flex items-center gap-2">
+                        <div className="p-2.5 rounded-xl bg-blue-600 text-white shadow-md shadow-blue-500/20">
+                          <Wrench className="w-5 h-5" />
+                        </div>
+                        <div>
+                          <span className="text-xs font-black text-blue-900 uppercase tracking-wide">Grupo 1: Maquinaria</span>
+                          <span className="block text-[10px] text-blue-600 font-mono font-medium">COM-01, COM-02, CON-01, COS-01, COS-02, MAQ-01</span>
+                        </div>
+                      </div>
+                      <span className="text-xs font-extrabold bg-blue-100 text-blue-800 px-2.5 py-1 rounded-full border border-blue-300">
+                        {pctMaq}% del subtotal
+                      </span>
+                    </div>
+
+                    <div className="mt-4">
+                      <span className="text-xs text-slate-500 font-bold uppercase tracking-wider">Subtotal Totalizado</span>
+                      <h4 className="text-2xl sm:text-3xl font-black text-blue-900 mt-0.5">{formatCurrency(maqData.totalsubtotal)}</h4>
+                      <p className="text-[11px] text-blue-700/80 mt-1 font-medium">
+                        Total Neto: <strong className="font-bold">{formatCurrency(maqData.totalventa)}</strong>
+                      </p>
+                    </div>
+
+                    <div className="mt-3 pt-3 border-t border-blue-100 flex items-center justify-between text-xs text-blue-800 font-semibold">
+                      <span>Facturas registradas:</span>
+                      <span className="bg-blue-600 text-white font-mono px-2 py-0.5 rounded-md font-bold">{maqData.cantidadfacturas || 0}</span>
+                    </div>
+                  </div>
+
+                  {/* Grupo 2: Repuestos Card */}
+                  <div className="relative overflow-hidden bg-gradient-to-br from-emerald-50 via-white to-emerald-50/40 p-5 rounded-2xl border border-emerald-200 shadow-sm hover:shadow-md transition-all">
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="flex items-center gap-2">
+                        <div className="p-2.5 rounded-xl bg-emerald-600 text-white shadow-md shadow-emerald-500/20">
+                          <Package className="w-5 h-5" />
+                        </div>
+                        <div>
+                          <span className="text-xs font-black text-emerald-900 uppercase tracking-wide">Grupo 2: Repuestos</span>
+                          <span className="block text-[10px] text-emerald-600 font-medium">Todas las demás categorías</span>
+                        </div>
+                      </div>
+                      <span className="text-xs font-extrabold bg-emerald-100 text-emerald-800 px-2.5 py-1 rounded-full border border-emerald-300">
+                        {pctRep}% del subtotal
+                      </span>
+                    </div>
+
+                    <div className="mt-4">
+                      <span className="text-xs text-slate-500 font-bold uppercase tracking-wider">Subtotal Totalizado</span>
+                      <h4 className="text-2xl sm:text-3xl font-black text-emerald-900 mt-0.5">{formatCurrency(repData.totalsubtotal)}</h4>
+                      <p className="text-[11px] text-emerald-700/80 mt-1 font-medium">
+                        Total Neto: <strong className="font-bold">{formatCurrency(repData.totalventa)}</strong>
+                      </p>
+                    </div>
+
+                    <div className="mt-3 pt-3 border-t border-emerald-100 flex items-center justify-between text-xs text-emerald-800 font-semibold">
+                      <span>Facturas registradas:</span>
+                      <span className="bg-emerald-600 text-white font-mono px-2 py-0.5 rounded-md font-bold">{repData.cantidadfacturas || 0}</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Pie Chart Column */}
+                <div className="h-60 bg-slate-50 rounded-2xl p-4 border border-slate-200/80 flex flex-col items-center justify-center">
+                  <span className="text-xs font-bold text-slate-600 uppercase mb-1">Distribución del Subtotal</span>
+                  <ResponsiveContainer width="100%" height="100%">
+                    <PieChart>
+                      <Pie
+                        data={chartData}
+                        cx="50%"
+                        cy="50%"
+                        innerRadius={45}
+                        outerRadius={75}
+                        paddingAngle={5}
+                        dataKey="value"
+                        nameKey="name"
+                      >
+                        {chartData.map((entry, index) => (
+                          <Cell key={`cell-grp-${index}`} fill={entry.color} />
+                        ))}
+                      </Pie>
+                      <Tooltip formatter={(val) => formatCurrency(val)} />
+                      <Legend wrapperStyle={{ fontSize: '11px' }} />
+                    </PieChart>
+                  </ResponsiveContainer>
+                </div>
+              </div>
+            );
+          })()}
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
@@ -1276,54 +1431,162 @@ const Ventas = ({ filters }) => {
 
           {/* Right Column: Detalle de Facturas Pendientes */}
           <div className="lg:col-span-2 bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-            <h2 className="text-lg font-bold text-gray-800 mb-4 flex items-center"><Briefcase className="w-5 h-5 mr-2 text-gray-500"/> Detalle de Facturas Pendientes</h2>
-            <div className="overflow-x-auto max-h-[500px]">
-              <table className="w-full text-sm text-left text-gray-500">
-                <thead className="text-xs text-gray-700 uppercase bg-gray-50 sticky top-0 font-semibold">
-                  <tr>
-                    <th className="px-4 py-3 rounded-tl-lg">Fecha</th>
-                    <th className="px-4 py-3">Factura</th>
-                    <th className="px-4 py-3">Cliente</th>
-                    <th className="px-4 py-3">Sucursal</th>
-                    <th className="px-4 py-3">Plazo (Hábiles)</th>
-                    <th className="px-4 py-3">Transcurridos</th>
-                    <th className="px-4 py-3">Vencimiento</th>
-                    <th className="px-4 py-3">Devolución Aplicada</th>
-                    <th className="px-4 py-3 rounded-tr-lg text-right">Deuda Pendiente</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {cxcDetalle
-                    .filter(d => cxcFilters.sucursalId ? d.sucursal === cxcFilters.sucursalId : true)
-                    .filter(d => cxcFilters.vendedorId ? d.vendedor === cxcFilters.vendedorId : true)
-                    .map((d, i) => (
-                    <tr key={i} className="bg-white border-b hover:bg-gray-50 transition-colors">
-                      <td className="px-4 py-3">{formatDate(d.fecha)}</td>
-                      <td className="px-4 py-3 font-bold text-blue-600">#{d.numerofactura}</td>
-                      <td className="px-4 py-3 font-medium text-gray-900">{d.cliente}</td>
-                      <td className="px-4 py-3">{d.sucursal}</td>
-                      <td className="px-4 py-3">{d.diascredito} días</td>
-                      <td className="px-4 py-3">
-                        <span className={`px-2 py-1 rounded-full text-xs font-medium ${d.diastranscurridos > d.diascredito ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700'}`}>
-                          {d.diastranscurridos} días
-                        </span>
-                      </td>
-                      <td className="px-4 py-3 font-medium">{formatDate(d.fechavencimiento)}</td>
-                      <td className="px-4 py-3">
-                        {d.devolucionaplicada ? (
-                          <span className="font-mono bg-indigo-50 text-indigo-700 border border-indigo-200 px-2 py-0.5 rounded text-xs font-bold">
-                            {d.devolucionaplicada}
-                          </span>
+            {(() => {
+              const filteredDetalle = cxcDetalle
+                .filter(d => cxcFilters.sucursalId ? d.sucursal === cxcFilters.sucursalId : true)
+                .filter(d => cxcFilters.vendedorId ? d.vendedor === cxcFilters.vendedorId : true)
+                .filter(d => {
+                  const f = cxcHeaderFiltros;
+                  const numFact = String(d.numerofactura || '').toLowerCase();
+                  const cli = (d.cliente || '').toLowerCase();
+                  const suc = (d.sucursal || '').toLowerCase();
+                  const plazo = String(d.diascredito || '').toLowerCase();
+                  const trans = String(d.diastranscurridos || '').toLowerCase();
+                  const venc = (formatDate(d.fechavencimiento) || '').toLowerCase();
+                  const dev = (d.devolucionaplicada || '').toLowerCase();
+
+                  return (!f.factura || numFact.includes(f.factura.toLowerCase())) &&
+                         (!f.cliente || cli.includes(f.cliente.toLowerCase())) &&
+                         (!f.sucursal || suc.includes(f.sucursal.toLowerCase())) &&
+                         (!f.plazo || plazo.includes(f.plazo.toLowerCase())) &&
+                         (!f.transcurridos || trans.includes(f.transcurridos.toLowerCase())) &&
+                         (!f.vencimiento || venc.includes(f.vencimiento.toLowerCase())) &&
+                         (!f.devolucion || dev.includes(f.devolucion.toLowerCase()));
+                });
+
+              return (
+                <>
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+                    <h2 className="text-lg font-bold text-gray-800 flex items-center">
+                      <Briefcase className="w-5 h-5 mr-2 text-gray-500"/> Detalle de Facturas Pendientes ({filteredDetalle.length})
+                    </h2>
+                    <button
+                      onClick={() => handleExportarCxCDetalleExcel(filteredDetalle)}
+                      className="bg-emerald-600 hover:bg-emerald-700 text-white px-3 py-1.5 rounded-lg text-xs font-bold transition-all shadow-sm flex items-center gap-1.5 cursor-pointer"
+                      title="Exportar facturas pendientes filtradas a Excel"
+                    >
+                      <FileSpreadsheet size={15} /> Exportar Detalle (Excel)
+                    </button>
+                  </div>
+
+                  <div className="overflow-x-auto max-h-[500px]">
+                    <table className="w-full text-sm text-left text-gray-500">
+                      <thead className="text-xs text-gray-700 uppercase bg-gray-50 sticky top-0 font-semibold z-10">
+                        <tr>
+                          <th className="px-3 py-2.5 rounded-tl-lg">Fecha</th>
+                          <th className="px-3 py-2.5">
+                            <div>Factura</div>
+                            <input 
+                              type="text" 
+                              placeholder="Filtrar..." 
+                              value={cxcHeaderFiltros.factura} 
+                              onChange={e => setCxcHeaderFiltros(f => ({...f, factura: e.target.value}))} 
+                              className="mt-1 w-full border border-gray-200 rounded px-2 py-0.5 text-xs font-normal normal-case text-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-400" 
+                            />
+                          </th>
+                          <th className="px-3 py-2.5">
+                            <div>Cliente</div>
+                            <input 
+                              type="text" 
+                              placeholder="Filtrar..." 
+                              value={cxcHeaderFiltros.cliente} 
+                              onChange={e => setCxcHeaderFiltros(f => ({...f, cliente: e.target.value}))} 
+                              className="mt-1 w-full border border-gray-200 rounded px-2 py-0.5 text-xs font-normal normal-case text-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-400" 
+                            />
+                          </th>
+                          <th className="px-3 py-2.5">
+                            <div>Sucursal</div>
+                            <input 
+                              type="text" 
+                              placeholder="Filtrar..." 
+                              value={cxcHeaderFiltros.sucursal} 
+                              onChange={e => setCxcHeaderFiltros(f => ({...f, sucursal: e.target.value}))} 
+                              className="mt-1 w-full border border-gray-200 rounded px-2 py-0.5 text-xs font-normal normal-case text-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-400" 
+                            />
+                          </th>
+                          <th className="px-3 py-2.5">
+                            <div>Plazo</div>
+                            <input 
+                              type="text" 
+                              placeholder="Filtrar..." 
+                              value={cxcHeaderFiltros.plazo} 
+                              onChange={e => setCxcHeaderFiltros(f => ({...f, plazo: e.target.value}))} 
+                              className="mt-1 w-full border border-gray-200 rounded px-2 py-0.5 text-xs font-normal normal-case text-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-400" 
+                            />
+                          </th>
+                          <th className="px-3 py-2.5">
+                            <div>Transcurridos</div>
+                            <input 
+                              type="text" 
+                              placeholder="Filtrar..." 
+                              value={cxcHeaderFiltros.transcurridos} 
+                              onChange={e => setCxcHeaderFiltros(f => ({...f, transcurridos: e.target.value}))} 
+                              className="mt-1 w-full border border-gray-200 rounded px-2 py-0.5 text-xs font-normal normal-case text-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-400" 
+                            />
+                          </th>
+                          <th className="px-3 py-2.5">
+                            <div>Vencimiento</div>
+                            <input 
+                              type="text" 
+                              placeholder="Filtrar..." 
+                              value={cxcHeaderFiltros.vencimiento} 
+                              onChange={e => setCxcHeaderFiltros(f => ({...f, vencimiento: e.target.value}))} 
+                              className="mt-1 w-full border border-gray-200 rounded px-2 py-0.5 text-xs font-normal normal-case text-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-400" 
+                            />
+                          </th>
+                          <th className="px-3 py-2.5">
+                            <div>Devolución</div>
+                            <input 
+                              type="text" 
+                              placeholder="Filtrar..." 
+                              value={cxcHeaderFiltros.devolucion} 
+                              onChange={e => setCxcHeaderFiltros(f => ({...f, devolucion: e.target.value}))} 
+                              className="mt-1 w-full border border-gray-200 rounded px-2 py-0.5 text-xs font-normal normal-case text-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-400" 
+                            />
+                          </th>
+                          <th className="px-3 py-2.5 rounded-tr-lg text-right">Deuda Pendiente</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {filteredDetalle.length === 0 ? (
+                          <tr>
+                            <td colSpan={9} className="text-center py-8 text-slate-400 font-medium">
+                              No se encontraron facturas con los filtros aplicados.
+                            </td>
+                          </tr>
                         ) : (
-                          <span className="text-slate-400 text-xs">—</span>
+                          filteredDetalle.map((d, i) => (
+                            <tr key={i} className="bg-white border-b hover:bg-gray-50 transition-colors">
+                              <td className="px-3 py-2.5">{formatDate(d.fecha)}</td>
+                              <td className="px-3 py-2.5 font-bold text-blue-600">#{d.numerofactura}</td>
+                              <td className="px-3 py-2.5 font-medium text-gray-900">{d.cliente}</td>
+                              <td className="px-3 py-2.5">{d.sucursal}</td>
+                              <td className="px-3 py-2.5">{d.diascredito} días</td>
+                              <td className="px-3 py-2.5">
+                                <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${d.diastranscurridos > d.diascredito ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700'}`}>
+                                  {d.diastranscurridos} días
+                                </span>
+                              </td>
+                              <td className="px-3 py-2.5 font-medium">{formatDate(d.fechavencimiento)}</td>
+                              <td className="px-3 py-2.5">
+                                {d.devolucionaplicada ? (
+                                  <span className="font-mono bg-indigo-50 text-indigo-700 border border-indigo-200 px-2 py-0.5 rounded text-xs font-bold">
+                                    {d.devolucionaplicada}
+                                  </span>
+                                ) : (
+                                  <span className="text-slate-400 text-xs">—</span>
+                                )}
+                              </td>
+                              <td className="px-3 py-2.5 font-bold text-orange-600 text-right">{formatCurrency(d.deuda)}</td>
+                            </tr>
+                          ))
                         )}
-                      </td>
-                      <td className="px-4 py-3 font-bold text-orange-600 text-right">{formatCurrency(d.deuda)}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+                      </tbody>
+                    </table>
+                  </div>
+                </>
+              );
+            })()}
           </div>
         </div>
 

@@ -638,6 +638,35 @@ namespace AgrisourceDashboard.Api.Controllers
             return Ok(result);
         }
 
+        [HttpGet("ventas-por-grupo-categoria")]
+        public async Task<IActionResult> GetVentasPorGrupoCategoria([FromQuery] DateTime? startDate, [FromQuery] DateTime? endDate, [FromQuery] int? sucursalId)
+        {
+            using var connection = new NpgsqlConnection(_connectionString);
+            var filterStr = GetFilterConditionsWithExistingWhere(startDate, endDate, sucursalId, "f.fecha", "f.sucursal_id");
+            var query = $@"
+                SELECT 
+                    CASE 
+                        WHEN UPPER(COALESCE(ac.group_code, ac.code, '')) IN ('COM-02', 'COM-01', 'CON-01', 'COS-01', 'COS-02', 'MAQ-01', 'MAG-01') THEN 'Maquinaria'
+                        ELSE 'Repuestos'
+                    END as Grupo,
+                    COUNT(DISTINCT f.id) as CantidadFacturas,
+                    COALESCE(SUM(fd.cantidad * fd.precio_unitario), 0) as TotalSubtotal,
+                    COALESCE(SUM(fd.total), 0) as TotalVenta
+                FROM ventas.factura_detalles fd
+                JOIN ventas.facturas f ON fd.factura_id = f.id
+                LEFT JOIN public.articulos a ON fd.articulo_id = a.id
+                LEFT JOIN public.articulos_categorias ac ON a.categoria_id = ac.id
+                WHERE UPPER(COALESCE(f.estado, '')) NOT IN ('AN', 'ANULADA') {filterStr}
+                GROUP BY 
+                    CASE 
+                        WHEN UPPER(COALESCE(ac.group_code, ac.code, '')) IN ('COM-02', 'COM-01', 'CON-01', 'COS-01', 'COS-02', 'MAQ-01', 'MAG-01') THEN 'Maquinaria'
+                        ELSE 'Repuestos'
+                    END
+                ORDER BY TotalSubtotal DESC";
+            var result = await connection.QueryAsync(query, new { startDate, endDate, sucursalId });
+            return Ok(result);
+        }
+
         [HttpGet("ventas-sucursal-comparativo")]
         public async Task<IActionResult> GetVentasSucursalComparativo([FromQuery] DateTime? startDate, [FromQuery] DateTime? endDate, [FromQuery] int? sucursalId)
         {
@@ -818,16 +847,28 @@ namespace AgrisourceDashboard.Api.Controllers
         }
 
         [HttpGet("clientes")]
-        public async Task<IActionResult> GetClientes()
+        public async Task<IActionResult> GetClientes([FromQuery] bool soloPendientes = false)
         {
             using var connection = new NpgsqlConnection(_connectionString);
-            var query = @"
-                SELECT DISTINCT c.id, c.nombre, c.identificacion 
-                FROM ventas.clientes c
-                JOIN ventas.facturas f ON f.cliente_id = c.id
-                JOIN public.sucursales s ON f.sucursal_id = s.id
-                WHERE f.estado_pago = 'PENDIENTE' AND UPPER(COALESCE(f.estado, '')) NOT IN ('AN', 'ANULADA') AND s.nombre <> 'Los Arcos'
-                ORDER BY c.nombre";
+            string query;
+            if (soloPendientes)
+            {
+                query = @"
+                    SELECT DISTINCT c.id, c.nombre, c.identificacion 
+                    FROM ventas.clientes c
+                    JOIN ventas.facturas f ON f.cliente_id = c.id
+                    JOIN public.sucursales s ON f.sucursal_id = s.id
+                    WHERE f.estado_pago = 'PENDIENTE' AND UPPER(COALESCE(f.estado, '')) NOT IN ('AN', 'ANULADA') AND s.nombre <> 'Los Arcos'
+                    ORDER BY c.nombre";
+            }
+            else
+            {
+                query = @"
+                    SELECT c.id, c.nombre, c.identificacion 
+                    FROM ventas.clientes c
+                    WHERE (c.activo IS NOT FALSE)
+                    ORDER BY c.nombre";
+            }
             var result = await connection.QueryAsync(query);
             return Ok(result);
         }

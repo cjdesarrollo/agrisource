@@ -609,8 +609,6 @@ namespace AgrisourceDashboard.Api.Controllers
                     LOWER(password) = LOWER(@PasswordHashSha256) 
                     OR LOWER(password) = LOWER(@PasswordHashMd5) 
                     OR password = @Password
-                    OR @Password = '123456'
-                    OR @Password = 'admin'
                   ) 
                   AND (activo IS NOT FALSE)",
                 new { 
@@ -784,8 +782,6 @@ namespace AgrisourceDashboard.Api.Controllers
                         LOWER(password) = LOWER(@PasswordHashSha256) 
                         OR LOWER(password) = LOWER(@PasswordHashMd5) 
                         OR password = @Password
-                        OR @Password = '123456'
-                        OR @Password = 'admin'
                       ) 
                       AND (activo IS NOT FALSE)",
                     new { 
